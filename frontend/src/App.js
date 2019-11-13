@@ -1,10 +1,10 @@
 import React from "react";
 import "./App.css";
 
-import HomePage from "./Components/HomepageComps/HomePage";
+import MainContainer from "./MainContainer";
 
 function App() {
-  return <HomePage />;
+  return <MainContainer />;
 }
 
 export default App;
