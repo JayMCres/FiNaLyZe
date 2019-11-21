@@ -3,8 +3,8 @@ import { Segment, Grid, Message } from "semantic-ui-react";
 import io from "socket.io-client";
 export default class MarketAnalysis extends Component {
   state = {
-    currentStockPrices: [],
-    priorStockPrices: [],
+    currentTickerPrices: [],
+    priorTickerPrices: [],
     endpoint: "http://localhost:5000"
   };
 
@@ -16,8 +16,8 @@ export default class MarketAnalysis extends Component {
     const socket = io(endpoint);
     socket.on("FromAPI", data =>
       this.setState({
-        currentStockPrices: data,
-        priorStockPrices: this.state.currentStockPrices
+        currentTickerPrices: data,
+        priorTickerPrices: this.state.currentTickerPrices
       })
     );
   }
