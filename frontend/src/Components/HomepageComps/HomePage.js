@@ -4,6 +4,7 @@ import CompanyAnalysis from "./CompanyAnalysis";
 import MarketAnalysis from "./MarketComps/MarketAnalysis";
 import NewsFeed from "./NewsFeed";
 import TickerList from "./TickerList";
+import RealTimePriceContainer from "./RealTimePriceContainer";
 class HomePage extends Component {
   state = {
     newsFeed: false,
@@ -49,7 +50,6 @@ class HomePage extends Component {
   render() {
     return (
       <Segment inverted>
-        <Message info />
         <Menu>
           <Menu.Item
             style={{ color: "blue" }}
@@ -80,6 +80,12 @@ class HomePage extends Component {
             <strong> News Feed </strong>
           </Menu.Item>
         </Menu>
+        <Segment inverted>
+          <RealTimePriceContainer />
+        </Segment>
+        <Segment inverted>
+          <Message info></Message>
+        </Segment>
         <Segment inverted>
           {this.state.tickerList ? <TickerList /> : null}
           {this.state.newsFeed ? <NewsFeed /> : null}
