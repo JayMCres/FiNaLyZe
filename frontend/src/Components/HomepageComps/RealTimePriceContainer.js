@@ -76,7 +76,7 @@ export default class RealTimePriceContainer extends Component {
         />
         <Card.Group centered itemsPerRow={7}>
           {realTimePriceItems.map(price => {
-            return <RealTimePriceCard {...price} />;
+            return <RealTimePriceCard key={price.symbol} {...price} />;
           })}
         </Card.Group>
       </Segment>
