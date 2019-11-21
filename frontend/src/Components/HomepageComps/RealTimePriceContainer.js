@@ -9,7 +9,7 @@ export default class RealTimePriceContainer extends Component {
     priorStockPrices: [],
     endpoint: "http://localhost:5000",
     startIdx: 0,
-    endIdx: 6
+    endIdx: 5
   };
 
   componentWillMount() {
@@ -39,8 +39,8 @@ export default class RealTimePriceContainer extends Component {
   showMore = () => {
     this.setState(prevState => {
       return {
-        startIdx: prevState.startIdx + 3,
-        endIdx: prevState.endIdx + 3
+        startIdx: prevState.startIdx + 5,
+        endIdx: prevState.endIdx + 5
       };
     });
   };
@@ -48,8 +48,8 @@ export default class RealTimePriceContainer extends Component {
   showLess = () => {
     this.setState(prevState => {
       return {
-        startIdx: prevState.startIdx - 3,
-        endIdx: prevState.endIdx - 3
+        startIdx: prevState.startIdx - 5,
+        endIdx: prevState.endIdx - 5
       };
     });
   };
@@ -74,7 +74,7 @@ export default class RealTimePriceContainer extends Component {
           icon="right arrow"
           labelPosition="right"
         />
-        <Card.Group centered itemsPerRow={7}>
+        <Card.Group centered itemsPerRow={5}>
           {realTimePriceItems.map(price => {
             return <RealTimePriceCard key={price.symbol} {...price} />;
           })}
