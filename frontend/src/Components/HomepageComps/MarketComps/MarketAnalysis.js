@@ -3,8 +3,8 @@ import { Segment, Grid, Message } from "semantic-ui-react";
 import io from "socket.io-client";
 export default class MarketAnalysis extends Component {
   state = {
-    currentStocks: [],
-    pastStocks: [],
+    currentStockPrices: [],
+    priorStockPrices: [],
     endpoint: "http://localhost:5000"
   };
 
@@ -16,8 +16,8 @@ export default class MarketAnalysis extends Component {
     const socket = io(endpoint);
     socket.on("FromAPI", data =>
       this.setState({
-        currentStocks: data,
-        pastStocks: this.state.currentStocks
+        currentStockPrices: data,
+        priorStockPrices: this.state.currentStockPrices
       })
     );
   }
@@ -31,8 +31,10 @@ export default class MarketAnalysis extends Component {
     // alert("disconnected:" + this.socket.id);
     this.setState({ state: "disconnected" });
   };
+
   render() {
     console.log("Market Analysis MainPage State", this.state);
+
     return <div>Market Analysis</div>;
   }
 }
