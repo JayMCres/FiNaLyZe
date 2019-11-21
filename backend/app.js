@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
-require("./routes")(app);
+// require("./routes")(app);
 
 app.get("*", (req, res) => res.status(200).send("Welcome to the homepage."));
 
@@ -40,4 +40,17 @@ io.sockets.on("connection", socket => {
   setInterval(() => getRealTimeStockPrices(socket), 10000);
 });
 
-const getRealTimeStockPrices = async socket => {};
+const getRealTimeStockPrices = async socket => {
+  // const companyTickers =
+  //   "MSFT,AAPL,AMZN,GOOG,FB,JPM,JNJ,V,XOM,BAC,WMT,PG,MA,DIS,CSCO,VZ,INTC,UNH,T,CVX,HD,PFE,WFC,BA,KO,MRK,CMCSA,ORCL,PEP,C,NFLX,MCD,ADBE,NKE,ABT,PYPL,PM,CRM,HON,UNP,LLY,AVGO,IBM,ACN,ABBV,MDT,AMGN,MMM,TXN";
+  const url =
+    "https://financialmodelingprep.com/api/company/real-time-price/MSFT,AAPL,AMZN,GOOG,FB,JPM,JNJ,V,XOM,BAC,WMT,PG,MA,DIS,CSCO,VZ,INTC,UNH,T,CVX,HD,PFE,WFC,BA,KO,MRK,CMCSA,ORCL,PEP,C,NFLX,MCD,ADBE,NKE,ABT,PYPL,PM,CRM,HON,UNP,LLY,AVGO,IBM,ACN,ABBV,MDT,AMGN,MMM,TXN?datatype=json";
+  let response = await fetch(url);
+  // console.log("Real Time Ticker Response", response);
+
+  let dataJSON = await response.json();
+  console.log("JSON Data Response", dataJSON);
+
+  const realTimeStocks = await dataJSON;
+  socket.emit("Real Time Prices", realTimeStocks);
+};
