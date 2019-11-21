@@ -83,9 +83,7 @@ class HomePage extends Component {
         <Segment inverted>
           {this.state.tickerList ? <TickerList /> : null}
           {this.state.newsFeed ? <NewsFeed /> : null}
-
           {this.state.companyAnalysis ? <CompanyAnalysis /> : null}
-
           {this.state.marketIndexes ? <MarketAnalysis /> : null}
         </Segment>
       </Segment>
