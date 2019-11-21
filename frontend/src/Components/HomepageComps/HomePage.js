@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Menu, Segment, Message } from "semantic-ui-react";
 import CompanyAnalysis from "./CompanyAnalysis";
-import MarketAnalysis from "./MarketAnalysis";
+import MarketAnalysis from "./MarketComps/MarketAnalysis";
 import NewsFeed from "./NewsFeed";
 import TickerList from "./TickerList";
 class HomePage extends Component {
