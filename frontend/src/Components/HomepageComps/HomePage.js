@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Menu, Segment, Message } from "semantic-ui-react";
 import CompanyAnalysis from "./CompanyAnalysis";
 import MarketAnalysis from "./MarketComps/MarketAnalysis";
-import NewsFeed from "./NewsFeed";
+import NewsContainer from "./NewsComponents/NewsContainer";
 import TickerList from "./TickerList";
-import RealTimePriceContainer from "./RealTimePriceContainer";
+import RealTimePriceContainer from "./PriceScrollBar/RealTimePriceContainer";
 class HomePage extends Component {
   state = {
     newsFeed: false,
@@ -90,7 +90,7 @@ class HomePage extends Component {
 
         <Segment inverted>
           {this.state.tickerList ? <TickerList /> : null}
-          {this.state.newsFeed ? <NewsFeed /> : null}
+          {this.state.newsFeed ? <NewsContainer /> : null}
           {this.state.companyAnalysis ? <CompanyAnalysis /> : null}
           {this.state.marketIndexes ? <MarketAnalysis /> : null}
         </Segment>

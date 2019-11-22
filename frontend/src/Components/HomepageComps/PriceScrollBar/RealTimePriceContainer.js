@@ -54,7 +54,7 @@ export default class RealTimePriceContainer extends Component {
     });
   };
   render() {
-    // console.log("Real Time Price Container State", this.state);
+    console.log("Real Time Price Container State", this.state);
     const realTimePriceItems = Object.values(
       this.state.currentStockPrices
     ).slice(this.state.startIdx, this.state.endIdx);
@@ -66,6 +66,7 @@ export default class RealTimePriceContainer extends Component {
           content="Back"
           icon="left arrow"
           labelPosition="left"
+          disabled={this.state.startIdx === 0}
         />
         <Button
           floated="right"
@@ -73,6 +74,9 @@ export default class RealTimePriceContainer extends Component {
           content="Next"
           icon="right arrow"
           labelPosition="right"
+          disabled={
+            this.state.endIdx === this.state.currentStockPrices.length + 1
+          }
         />
         <Card.Group centered itemsPerRow={5}>
           {realTimePriceItems.map(price => {

@@ -1,7 +1,23 @@
-import React, { Component } from "react";
+// import React, { Component } from "react";
 
-export default class CompanyAnalysis extends Component {
-  render() {
-    return <div>News Feed</div>;
-  }
-}
+// export default class NewsFeed extends Component {
+//   state = {
+//     articles: []
+//   };
+//   componentDidMount() {
+//     fetch("http://localhost:5000/api/articles")
+//       .then(response => {
+//         return response.json();
+//       })
+//       .then(articles => {
+//         return this.setState({
+//           articles: articles
+//         });
+//       });
+//   }
+
+//   render() {
+//     console.log("News Feed State", this.state);
+//     return <div>News Feed</div>;
+//   }
+// }
