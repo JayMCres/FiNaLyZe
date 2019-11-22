@@ -14,7 +14,6 @@ app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
-
 // require("./routes")(app);
 
 app.get("*", (req, res) => res.status(200).send("Welcome to the homepage."));
@@ -45,9 +44,8 @@ const getApiAndEmit = async socket => {
   let response = await fetch(url);
   // console.log("response", response);
 
-  // // // only proceed once promise is resolved
   let json = await response.json();
-  console.log("json", json);
+  // console.log("json", json);
 
   const stocks = await json;
   socket.emit("FromAPI", stocks);
