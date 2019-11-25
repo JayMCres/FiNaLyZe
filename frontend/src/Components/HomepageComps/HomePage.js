@@ -91,19 +91,17 @@ class HomePage extends Component {
 
         <Segment inverted>
           <Grid columns={2} divided>
-            <Grid.Row verticalAlign="middle">
-              <Grid.Column width={14}>
-                {this.state.tickerList ? <TickerList /> : null}
-                {this.state.newsFeed ? <NewsContainer /> : null}
-                {this.state.companyAnalysis ? <CompanyAnalysis /> : null}
-                {/* {this.state.marketIndexes ? <MarketAnalysis /> : null} */}
-              </Grid.Column>
-              <Grid.Column width={2}>
-                <Segment style={{ overflow: "auto", maxHeight: 900 }}>
-                  <RealTimeTickerContainer />
-                </Segment>
-              </Grid.Column>
-            </Grid.Row>
+            <Grid.Column width={14}>
+              {this.state.tickerList ? <TickerList /> : null}
+              {this.state.newsFeed ? <NewsContainer /> : null}
+              {this.state.companyAnalysis ? <CompanyAnalysis /> : null}
+              {/* {this.state.marketIndexes ? <MarketAnalysis /> : null} */}
+            </Grid.Column>
+            <Grid.Column width={2}>
+              <Segment style={{ overflow: "auto", maxHeight: 900 }}>
+                <RealTimeTickerContainer />
+              </Segment>
+            </Grid.Column>
           </Grid>
         </Segment>
       </Segment>
