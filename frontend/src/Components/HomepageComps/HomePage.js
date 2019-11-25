@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Menu, Segment, Message, Grid } from "semantic-ui-react";
 import CompanyAnalysis from "./CompanyAnalysis";
-import MarketAnalysis from "./MarketComps/MarketAnalysis";
+// import MarketAnalysis from "./MarketComps/MarketAnalysisContainer";
 import NewsContainer from "./NewsComponents/NewsContainer";
 import TickerList from "./TickerList";
 import RealTimeTickerContainer from "./PriceScrollBar/RealTimeTickerContainer";
@@ -96,10 +96,12 @@ class HomePage extends Component {
                 {this.state.tickerList ? <TickerList /> : null}
                 {this.state.newsFeed ? <NewsContainer /> : null}
                 {this.state.companyAnalysis ? <CompanyAnalysis /> : null}
-                {this.state.marketIndexes ? <MarketAnalysis /> : null}
+                {/* {this.state.marketIndexes ? <MarketAnalysis /> : null} */}
               </Grid.Column>
               <Grid.Column width={2}>
-                <RealTimeTickerContainer />{" "}
+                <Segment style={{ overflow: "auto", maxHeight: 900 }}>
+                  <RealTimeTickerContainer />
+                </Segment>
               </Grid.Column>
             </Grid.Row>
           </Grid>
