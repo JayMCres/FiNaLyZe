@@ -53,6 +53,16 @@ export default class RealTimePriceContainer extends Component {
       };
     });
   };
+
+  handleColorChange = () => {
+    if (this.state.currentStockPrices > this.state.priorStockPrices) {
+      return "#7FFF00";
+    } else if (this.state.currentStockPrices < this.state.priorStockPrices) {
+      return "#FF4500";
+    } else {
+      return "grey";
+    }
+  };
   render() {
     console.log("Real Time Price Container State", this.state);
     const realTimePriceItems = Object.values(
@@ -80,7 +90,13 @@ export default class RealTimePriceContainer extends Component {
         />
         <Card.Group centered itemsPerRow={5}>
           {realTimePriceItems.map(price => {
-            return <RealTimePriceCard key={price.symbol} {...price} />;
+            return (
+              <RealTimePriceCard
+                key={price.symbol}
+                {...price}
+                handleColorChange={this.handleColorChange}
+              />
+            );
           })}
         </Card.Group>
       </Segment>
