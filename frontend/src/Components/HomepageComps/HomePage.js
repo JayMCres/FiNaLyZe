@@ -9,7 +9,7 @@ class HomePage extends Component {
   state = {
     newsFeed: false,
     companyAnalysis: false,
-    marketIndexes: false,
+    // marketIndexes: false,
     tickerList: true
   };
 
@@ -18,7 +18,7 @@ class HomePage extends Component {
       return this.setState({
         newsFeed: true,
         companyAnalysis: false,
-        marketIndexes: false,
+        // marketIndexes: false,
         tickerList: false
       });
     }
@@ -26,22 +26,22 @@ class HomePage extends Component {
       return this.setState({
         newsFeed: false,
         companyAnalysis: true,
-        marketIndexes: false,
+        // marketIndexes: false,
         tickerList: false
       });
-    }
-    if (word === "market") {
-      return this.setState({
-        newsFeed: false,
-        companyAnalysis: false,
-        marketIndexes: true,
-        tickerList: false
-      });
+      // }
+      // if (word === "market") {
+      //   return this.setState({
+      //     newsFeed: false,
+      //     companyAnalysis: false,
+      //     marketIndexes: true,
+      //     tickerList: false
+      //   });
     } else {
       return this.setState({
         newsFeed: false,
         companyAnalysis: false,
-        marketIndexes: false,
+        // marketIndexes: false,
         tickerList: true
       });
     }
@@ -73,13 +73,13 @@ class HomePage extends Component {
           >
             <strong> Company Analysis </strong>
           </Menu.Item>
-          <Menu.Item
+          {/* <Menu.Item
             style={{ color: "blue" }}
             name="market"
             onClick={() => this.toggleMainMenu("market")}
           >
             <strong> Market Analysis </strong>
-          </Menu.Item>
+          </Menu.Item> */}
           <Menu.Item
             style={{ color: "blue" }}
             name="news"
@@ -95,7 +95,6 @@ class HomePage extends Component {
               {this.state.tickerList ? <TickerList /> : null}
               {this.state.newsFeed ? <NewsContainer /> : null}
               {this.state.companyAnalysis ? <CompanyAnalysis /> : null}
-              {/* {this.state.marketIndexes ? <MarketAnalysis /> : null} */}
             </Grid.Column>
             <Grid.Column width={2}>
               <Segment style={{ overflow: "auto", maxHeight: 900 }}>
