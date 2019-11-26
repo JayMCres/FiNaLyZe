@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Grid, Segment } from "semantic-ui-react";
-import ShortFormTickerList from "./ShortFormTickerList";
+import ShortFormTickerList from "./CompanyList/ShortFormTickerList";
+import CompanyContainer from "./CompanySummary/CompanyContainer";
 export default class FinancialSummaryContainer extends Component {
   render() {
     return (
@@ -13,7 +14,7 @@ export default class FinancialSummaryContainer extends Component {
             </Segment>
           </Grid.Column>
           <Grid.Column width={10} color="black">
-            test
+            <CompanyContainer />
           </Grid.Column>
         </Grid.Row>
       </Grid>
