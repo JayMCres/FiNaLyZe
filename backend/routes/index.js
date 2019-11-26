@@ -1,17 +1,12 @@
-var express = require("express");
-var router = express.Router();
+const routes = require("express").Router();
 
 const stockTickerController = require("../controllers/stockTickerController");
 const newsArticleController = require("../controllers/newsArticleController");
+const marketIndexController = require("../controllers/marketIndexController");
 
-module.exports = app => {
-  app.get("/api", (req, res) =>
-    res.status(200).send({
-      message: "Welcome to the Finalyze!"
-    })
-  );
-};
+routes.use("/api/news", newsArticleController.getNewsArticles);
 
-router.use("/api/news", newsArticleController.getNewsArticles);
+routes.use("/api/tickers", stockTickerController.getStockTickers);
+routes.use("/api/indexes", marketIndexController.getMarketIndexes);
 
-router.use("/api/tickers", stockTickerController.getStockTickers);
+module.exports = routes;

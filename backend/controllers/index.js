@@ -1,7 +1,9 @@
-const tickers = require("./stockTickerController");
-const articles = require("./newsArticleController");
+const stockTickerController = require("./stockTickerController");
+const newsArticleController = require("./newsArticleController");
+const marketIndexController = require("./marketIndexController");
 
 module.exports = {
-  tickers,
-  articles
+  stockTickerController,
+  newsArticleController,
+  marketIndexController
 };
