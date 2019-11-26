@@ -19,6 +19,8 @@ export default class NewsContainer extends Component {
 
   render() {
     console.log("News Feed State", this.state);
-    return <div>News Feed</div>;
+    return this.state.articles.map(article => {
+      return <NewsItem {...article} />;
+    });
   }
 }
