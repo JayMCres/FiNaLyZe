@@ -42,7 +42,7 @@ export default class RealTimePriceCard extends Component {
           </Statistic.Label>
           <Statistic.Value textAlign="center">
             <strong style={{ color: this.handleColorChange() }}>
-              ${this.props.price}
+              <h3> ${this.props.price} </h3>
             </strong>
           </Statistic.Value>
         </Statistic>

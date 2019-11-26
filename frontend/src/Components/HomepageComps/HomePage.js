@@ -3,14 +3,14 @@ import { Menu, Segment, Message, Grid } from "semantic-ui-react";
 import CompanyAnalysis from "./CompanyAnalysis";
 import MarketAnalysisContainer from "./MarketComps/MarketAnalysisContainer";
 import NewsContainer from "./NewsComponents/NewsContainer";
-import TickerList from "./TickerList";
+import CompanyList from "./CompanyListComp/CompanyList";
 import RealTimeTickerContainer from "./PriceScrollBar/RealTimeTickerContainer";
 class HomePage extends Component {
   state = {
     newsFeed: false,
     companyAnalysis: false,
     // marketIndexes: false,
-    tickerList: true
+    CompanyList: true
   };
 
   toggleMainMenu = word => {
@@ -19,7 +19,7 @@ class HomePage extends Component {
         newsFeed: true,
         companyAnalysis: false,
         // marketIndexes: false,
-        tickerList: false
+        CompanyList: false
       });
     }
     if (word === "company") {
@@ -27,7 +27,7 @@ class HomePage extends Component {
         newsFeed: false,
         companyAnalysis: true,
         // marketIndexes: false,
-        tickerList: false
+        CompanyList: false
       });
       // }
       // if (word === "market") {
@@ -35,14 +35,14 @@ class HomePage extends Component {
       //     newsFeed: false,
       //     companyAnalysis: false,
       //     marketIndexes: true,
-      //     tickerList: false
+      //     CompanyList: false
       //   });
     } else {
       return this.setState({
         newsFeed: false,
         companyAnalysis: false,
         // marketIndexes: false,
-        tickerList: true
+        CompanyList: true
       });
     }
   };
@@ -91,7 +91,7 @@ class HomePage extends Component {
         <Segment inverted>
           <Grid columns={2} divided>
             <Grid.Column width={14}>
-              {this.state.tickerList ? <TickerList /> : null}
+              {this.state.CompanyList ? <CompanyList /> : null}
               {this.state.newsFeed ? <NewsContainer /> : null}
               {this.state.companyAnalysis ? <CompanyAnalysis /> : null}
             </Grid.Column>
