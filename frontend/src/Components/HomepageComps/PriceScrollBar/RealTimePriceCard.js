@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Statistic, Icon, Message } from "semantic-ui-react";
+import { Card, Statistic } from "semantic-ui-react";
 
 export default class RealTimePriceCard extends Component {
   state = {
@@ -17,7 +17,7 @@ export default class RealTimePriceCard extends Component {
 
   setStockPrice = () => {
     this.setState({
-      currentStockPrices: this.props.stockPrices,
+      currentStockPrices: this.props.price,
       priorStockPrices: this.state.currentStockPrices
     });
   };
@@ -26,14 +26,14 @@ export default class RealTimePriceCard extends Component {
     if (this.state.currentStockPrices > this.state.priorStockPrices) {
       return "#7FFF00";
     } else if (this.state.currentStockPrices < this.state.priorStockPrices) {
-      return "#FF4500";
+      return "red";
     } else {
       return "grey";
     }
   };
 
   render() {
-    // console.log("Price Card Props", this.props);
+    console.log("Price Card Props", this.props);
     return (
       <Card>
         <Statistic size="tiny">

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import io from "socket.io-client";
-import { Card, Statistic, Icon, Message } from "semantic-ui-react";
+import { Card } from "semantic-ui-react";
 import RealTimePriceCard from "./RealTimePriceCard";
 
 export default class RealTimeTickerContainer extends Component {

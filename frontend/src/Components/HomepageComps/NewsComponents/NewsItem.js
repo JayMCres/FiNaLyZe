@@ -1,19 +1,12 @@
 import React, { Component } from "react";
 
-import {
-  Image,
-  Segment,
-  Grid,
-  List,
-  Message,
-  Container
-} from "semantic-ui-react";
+import { Image, Segment, Grid, List, Message } from "semantic-ui-react";
 
 import Linkify from "react-linkify";
 
 class NewsItem extends Component {
   render() {
-    console.log("news Props", this.props);
+    // console.log("news Props", this.props);
     const source = this.props.source.name.toUpperCase();
     return (
       <Segment inverted>

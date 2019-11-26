@@ -40,13 +40,13 @@ export default class MarketAnalysisContainer extends Component {
   };
 
   render() {
-    // console.log("Index Container State", this.state);
+    console.log("Index Container State", this.state.marketIndexes);
 
     const marketIndexItems = this.state.marketIndexes.slice(
       this.state.startIdx,
       this.state.endIdx
     );
-    // console.log("stockIndexItems", marketIndexItems);
+    console.log("stockIndexItems", marketIndexItems);
 
     return (
       <div>

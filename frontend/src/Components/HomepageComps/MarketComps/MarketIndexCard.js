@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Statistic, Icon, Message } from "semantic-ui-react";
+import { Card, Statistic } from "semantic-ui-react";
 
 export default class MarketIndexCard extends Component {
   render() {
