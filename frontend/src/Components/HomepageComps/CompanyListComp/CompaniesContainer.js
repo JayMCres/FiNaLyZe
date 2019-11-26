@@ -3,6 +3,8 @@ import { Segment } from "semantic-ui-react";
 
 import Search from "./LandingPage/Search";
 import CompanyList from "./LandingPage/CompanyList";
+// import CompanyList from "./LandingPage/CompanyList";
+import FinancialsSummaryContainer from "./FinancialsPage/FinancialsSummaryContainer";
 
 export default class CompaniesContainer extends Component {
   state = {
@@ -66,7 +68,9 @@ export default class CompaniesContainer extends Component {
             />
           </Segment>
         ) : (
-          <div>test</div>
+          <Segment inverted>
+            <FinancialsSummaryContainer companies={this.state.companies} />
+          </Segment>
         )}
       </div>
     );
