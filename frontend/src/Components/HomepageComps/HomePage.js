@@ -96,7 +96,14 @@ class HomePage extends Component {
               {this.state.companyAnalysis ? <CompanyAnalysis /> : null}
             </Grid.Column>
             <Grid.Column width={2}>
-              <Segment style={{ overflow: "auto", maxHeight: 900 }}>
+              <Message attached="top" color="violet">
+                <h3>Stocks</h3>
+              </Message>
+              <Segment
+                attached="bottom"
+                inverted
+                style={{ overflow: "auto", maxHeight: 900 }}
+              >
                 <RealTimeTickerContainer />
               </Segment>
             </Grid.Column>
