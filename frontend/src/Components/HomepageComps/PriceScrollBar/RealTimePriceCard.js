@@ -33,7 +33,7 @@ export default class RealTimePriceCard extends Component {
   };
 
   render() {
-    console.log("Price Card Props", this.props);
+    // console.log("Price Card Props", this.props);
     return (
       <Card>
         <Statistic size="tiny">

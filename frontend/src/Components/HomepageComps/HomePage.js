@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Menu, Segment, Message, Grid } from "semantic-ui-react";
 import CompanyAnalysis from "./CompanyAnalysis";
-// import MarketAnalysis from "./MarketComps/MarketAnalysisContainer";
+import MarketAnalysisContainer from "./MarketComps/MarketAnalysisContainer";
 import NewsContainer from "./NewsComponents/NewsContainer";
 import TickerList from "./TickerList";
 import RealTimeTickerContainer from "./PriceScrollBar/RealTimeTickerContainer";
@@ -54,8 +54,7 @@ class HomePage extends Component {
           <Message info></Message>
         </Segment>
         <Segment inverted>
-          TEST
-          {/* <RealTimePriceContainer /> */}
+          <MarketAnalysisContainer />
         </Segment>
 
         <Menu>
