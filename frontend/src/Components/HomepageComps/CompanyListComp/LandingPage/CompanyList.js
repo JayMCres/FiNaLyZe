@@ -32,7 +32,14 @@ export default class CompanyList extends Component {
 
           <Table.Body>
             {this.props.companies.map((ticker, index) => {
-              return <Company num={index} key={ticker.id} {...ticker} />;
+              return (
+                <Company
+                  num={index}
+                  key={ticker.id}
+                  {...ticker}
+                  showFinancialSummaryPage={this.props.showFinancialSummaryPage}
+                />
+              );
             })}
           </Table.Body>
         </Table>

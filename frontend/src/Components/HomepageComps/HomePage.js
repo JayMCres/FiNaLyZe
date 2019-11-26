@@ -3,30 +3,16 @@ import { Menu, Segment, Message, Grid } from "semantic-ui-react";
 import CompanyAnalysis from "./CompanyAnalysis";
 import MarketAnalysisContainer from "./MarketComps/MarketAnalysisContainer";
 import NewsContainer from "./NewsComponents/NewsContainer";
-import CompanyList from "./CompanyListComp/CompanyList";
+import CompaniesContainer from "./CompanyListComp/CompaniesContainer";
 import RealTimeTickerContainer from "./PriceScrollBar/RealTimeTickerContainer";
-import Search from "./Search";
+
 class HomePage extends Component {
   state = {
     newsFeed: false,
     companyAnalysis: false,
     // marketIndexes: false,
-    CompanyList: true,
-    inputValue: "",
-    companies: []
+    CompanyList: true
   };
-
-  componentDidMount() {
-    fetch("http://localhost:5000/api/tickers")
-      .then(response => {
-        return response.json();
-      })
-      .then(companies => {
-        return this.setState({
-          companies: companies
-        });
-      });
-  }
 
   toggleMainMenu = word => {
     if (word === "news") {
@@ -61,27 +47,6 @@ class HomePage extends Component {
       });
     }
   };
-
-  handleChange = event => {
-    // console.log("Changing")
-    // console.log (event.target.name)
-    this.setState({
-      inputValue: event.target.value
-    });
-  };
-
-  filterCompanies = () =>
-    this.state.companies.filter(item => {
-      return (
-        item.name.toLowerCase().includes(this.state.inputValue.toLowerCase()) ||
-        item.ticker
-          .toLowerCase()
-          .includes(this.state.inputValue.toLowerCase()) ||
-        item.exchange
-          .toLowerCase()
-          .includes(this.state.inputValue.toLowerCase())
-      );
-    });
 
   render() {
     return (
@@ -127,19 +92,7 @@ class HomePage extends Component {
         <Segment inverted>
           <Grid columns={2} divided>
             <Grid.Column width={14}>
-              {/* <Search
-                handleChange={this.handleChange}
-                inputValue={this.state.inputValue}
-              /> */}
-              {this.state.CompanyList ? (
-                <div>
-                  <Search
-                    handleChange={this.handleChange}
-                    inputValue={this.state.inputValue}
-                  />
-                  <CompanyList companies={this.filterCompanies()} />
-                </div>
-              ) : null}
+              {this.state.CompanyList ? <CompaniesContainer /> : null}
               {this.state.newsFeed ? <NewsContainer /> : null}
               {this.state.companyAnalysis ? <CompanyAnalysis /> : null}
             </Grid.Column>

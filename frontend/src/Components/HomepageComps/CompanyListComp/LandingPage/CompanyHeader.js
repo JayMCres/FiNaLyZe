@@ -9,8 +9,8 @@ const CompanyHeader = props => {
       <Table.HeaderCell>Ticker</Table.HeaderCell>
       <Table.HeaderCell>Exchange</Table.HeaderCell>
       <Table.HeaderCell>Sector</Table.HeaderCell>
+      <Table.HeaderCell>Industry</Table.HeaderCell>
       <Table.HeaderCell>Website</Table.HeaderCell>
-      <Table.HeaderCell>WatchList</Table.HeaderCell>
     </Table.Row>
   );
 };
