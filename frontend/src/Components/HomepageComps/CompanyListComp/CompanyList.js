@@ -1,12 +1,26 @@
 import React, { Component } from "react";
 
 import { Table } from "semantic-ui-react";
-// import Ticker from "./Ticker";
+import Company from "./Company";
 import CompanyHeader from "./CompanyHeader";
 
 export default class CompanyList extends Component {
+  state = {
+    companies: []
+  };
+  componentDidMount() {
+    fetch("http://localhost:5000/api/tickers")
+      .then(response => {
+        return response.json();
+      })
+      .then(companies => {
+        return this.setState({
+          companies: companies
+        });
+      });
+  }
   render() {
-    // console.log("Company list", this.props);
+    console.log("Company list State", this.state);
 
     return (
       <div>
@@ -14,7 +28,12 @@ export default class CompanyList extends Component {
           <Table.Header>
             <CompanyHeader />
           </Table.Header>
-          <Table.Body>test</Table.Body>
+          <Table.Body>
+            {" "}
+            {this.state.companies.map((ticker, index) => {
+              return <Company num={index} key={ticker.id} {...ticker} />;
+            })}
+          </Table.Body>
         </Table>
       </div>
     );
