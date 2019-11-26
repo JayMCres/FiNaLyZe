@@ -127,12 +127,18 @@ class HomePage extends Component {
         <Segment inverted>
           <Grid columns={2} divided>
             <Grid.Column width={14}>
-              <Search
+              {/* <Search
                 handleChange={this.handleChange}
                 inputValue={this.state.inputValue}
-              />
+              /> */}
               {this.state.CompanyList ? (
-                <CompanyList companies={this.filterCompanies()} />
+                <div>
+                  <Search
+                    handleChange={this.handleChange}
+                    inputValue={this.state.inputValue}
+                  />
+                  <CompanyList companies={this.filterCompanies()} />
+                </div>
               ) : null}
               {this.state.newsFeed ? <NewsContainer /> : null}
               {this.state.companyAnalysis ? <CompanyAnalysis /> : null}
@@ -144,7 +150,7 @@ class HomePage extends Component {
               <Segment
                 attached="bottom"
                 inverted
-                style={{ overflow: "auto", maxHeight: 900 }}
+                style={{ overflow: "auto", maxHeight: 950 }}
               >
                 <RealTimeTickerContainer />
               </Segment>

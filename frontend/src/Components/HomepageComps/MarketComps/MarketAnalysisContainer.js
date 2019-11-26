@@ -68,7 +68,7 @@ export default class MarketAnalysisContainer extends Component {
             content="Next"
             icon="right arrow"
             labelPosition="right"
-            disabled={this.state.endIdx === this.state.marketIndexes.length + 1}
+            disabled={this.state.endIdx === this.state.marketIndexes.length + 3}
           />
 
           <Card.Group centered itemsPerRow={5}>
