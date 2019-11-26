@@ -1,44 +1,41 @@
 const fetch = require("node-fetch");
 
 exports.getStockTickers = async (req, res) => {
-  // const col =
-  //   "ticker,name,exchange,famaindustry,sector,industry,scalemarketcap,scalerevenue,location,secfilings,companysite,permaticker";
-  // const url = `https://www.quandl.com/api/v3/datatables/SHARADAR/TICKERS.json?table=SF1&qopts.columns=${col}&api_key=YvjxT6NSByrGzvHcVJyS`;
-  // const response = await fetch(url);
-  // const json = await response.json();
+  const col =
+    "ticker,name,exchange,famaindustry,sector,industry,scalemarketcap,scalerevenue,location,secfilings,companysite,permaticker";
 
-  // console.log("JSON", json);
+  const url = `https://www.quandl.com/api/v3/datatables/SHARADAR/TICKERS.json?table=SF1&qopts.columns=${col}&api_key=YvjxT6NSByrGzvHcVJyS`;
 
-  // const dataResponse = await json.datatable.data.map((item, index) => {
-  //   return {
-  //     id: item[11],
-  //     ticker: item[0],
-  //     name: item[1],
-  //     exchange: item[2],
-  //     famaindustry: item[3],
-  //     sector: item[4],
-  //     industry: item[5],
-  //     marketcap: item[6],
-  //     revenue: item[7],
-  //     location: item[8],
-  //     filings: item[9],
-  //     website: item[10]
-  //   };
-  // });
+  const tickerResponse = await fetch(url);
 
-  // let reformattedData = await dataResponse.filter(obj => {
-  //   return obj.marketcap === "6 - Mega";
-  // });
-  // let newTickerArray = await reformattedData;
+  const tickerJson = await tickerResponse.json();
+  // console.log("JSON", tickerJson);
 
-  // res.send(newTickerArray);
+  const tickerDataResponse = await tickerJson.datatable.data.map(
+    (item, index) => {
+      return {
+        id: item[11],
+        ticker: item[0],
+        name: item[1],
+        exchange: item[2],
+        famaindustry: item[3],
+        sector: item[4],
+        industry: item[5],
+        marketcap: item[6],
+        revenue: item[7],
+        location: item[8],
+        filings: item[9],
+        website: item[10]
+      };
+    }
+  );
 
-  const companies = "AAPL,AMZN";
-  const url =
-    "https://financialmodelingprep.com/api/v3/company/profile/AAPL,AMZN";
-  const response = await fetch(url);
-  const json = await response.json();
+  // console.log("ticker Data Response", tickerDataResponse);
 
-  res.send(json);
-  console.log("JSON", json);
+  let filteredTickers = await tickerDataResponse.filter(obj => {
+    return obj.marketcap === "6 - Mega";
+  });
+  let reformatedTickers = await filteredTickers;
+
+  res.send(reformatedTickers);
 };

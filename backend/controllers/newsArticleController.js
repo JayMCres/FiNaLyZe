@@ -9,10 +9,5 @@ exports.getNewsArticles = async (req, res) => {
   let json = await response.json();
   // console.log("News JSON", json);
 
-  // const articles = await newsJsonData.articles.map(article => {
-  //   return article;
-  // });
-  // console.log("articles", articles);
-
   res.send(json);
 };
