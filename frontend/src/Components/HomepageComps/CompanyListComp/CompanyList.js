@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Table } from "semantic-ui-react";
+import { Table, Segment } from "semantic-ui-react";
 import Company from "./Company";
 import CompanyHeader from "./CompanyHeader";
 
@@ -23,19 +23,21 @@ export default class CompanyList extends Component {
     console.log("Company list State", this.state);
 
     return (
-      <div>
+      // <div>
+      <Segment inverted style={{ overflow: "auto", maxHeight: 950 }}>
         <Table striped inverted>
           <Table.Header>
             <CompanyHeader />
           </Table.Header>
+
           <Table.Body>
-            {" "}
             {this.state.companies.map((ticker, index) => {
               return <Company num={index} key={ticker.id} {...ticker} />;
             })}
           </Table.Body>
         </Table>
-      </div>
+      </Segment>
+      // </div>
     );
   }
 }
