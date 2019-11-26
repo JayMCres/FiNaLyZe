@@ -3,7 +3,7 @@ import { Card, Statistic, Icon, Message } from "semantic-ui-react";
 
 export default class MarketIndexCard extends Component {
   render() {
-    console.log("market index card", this.props);
+    // console.log("market index card", this.props);
     return (
       <Card inverted color="violet">
         {/* <Message color="violet"> */}

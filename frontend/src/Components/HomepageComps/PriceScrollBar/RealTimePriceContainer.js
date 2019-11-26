@@ -40,7 +40,7 @@ export default class RealTimePriceContainer extends Component {
     }
   };
   render() {
-    console.log("Real Time Price Container State", this.state);
+    // console.log("Real Time Price Container State", this.state);
     const realTimePriceItems = Object.values(
       this.state.currentStockPrices
     ).slice(this.state.startIdx, this.state.endIdx);
