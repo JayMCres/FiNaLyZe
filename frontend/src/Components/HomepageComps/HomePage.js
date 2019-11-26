@@ -5,12 +5,14 @@ import MarketAnalysisContainer from "./MarketComps/MarketAnalysisContainer";
 import NewsContainer from "./NewsComponents/NewsContainer";
 import CompanyList from "./CompanyListComp/CompanyList";
 import RealTimeTickerContainer from "./PriceScrollBar/RealTimeTickerContainer";
+import Search from "./Search";
 class HomePage extends Component {
   state = {
     newsFeed: false,
     companyAnalysis: false,
     // marketIndexes: false,
-    CompanyList: true
+    CompanyList: true,
+    inputValue: ""
   };
 
   toggleMainMenu = word => {
@@ -91,6 +93,7 @@ class HomePage extends Component {
         <Segment inverted>
           <Grid columns={2} divided>
             <Grid.Column width={14}>
+              <Search />
               {this.state.CompanyList ? <CompanyList /> : null}
               {this.state.newsFeed ? <NewsContainer /> : null}
               {this.state.companyAnalysis ? <CompanyAnalysis /> : null}
