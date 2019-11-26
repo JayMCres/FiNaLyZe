@@ -12,8 +12,21 @@ class HomePage extends Component {
     companyAnalysis: false,
     // marketIndexes: false,
     CompanyList: true,
-    inputValue: ""
+    inputValue: "",
+    companies: []
   };
+
+  componentDidMount() {
+    fetch("http://localhost:5000/api/tickers")
+      .then(response => {
+        return response.json();
+      })
+      .then(companies => {
+        return this.setState({
+          companies: companies
+        });
+      });
+  }
 
   toggleMainMenu = word => {
     if (word === "news") {
@@ -48,6 +61,27 @@ class HomePage extends Component {
       });
     }
   };
+
+  handleChange = event => {
+    // console.log("Changing")
+    // console.log (event.target.name)
+    this.setState({
+      inputValue: event.target.value
+    });
+  };
+
+  filterCompanies = () =>
+    this.state.companies.filter(item => {
+      return (
+        item.name.toLowerCase().includes(this.state.inputValue.toLowerCase()) ||
+        item.ticker
+          .toLowerCase()
+          .includes(this.state.inputValue.toLowerCase()) ||
+        item.exchange
+          .toLowerCase()
+          .includes(this.state.inputValue.toLowerCase())
+      );
+    });
 
   render() {
     return (
@@ -93,8 +127,13 @@ class HomePage extends Component {
         <Segment inverted>
           <Grid columns={2} divided>
             <Grid.Column width={14}>
-              <Search />
-              {this.state.CompanyList ? <CompanyList /> : null}
+              <Search
+                handleChange={this.handleChange}
+                inputValue={this.state.inputValue}
+              />
+              {this.state.CompanyList ? (
+                <CompanyList companies={this.filterCompanies()} />
+              ) : null}
               {this.state.newsFeed ? <NewsContainer /> : null}
               {this.state.companyAnalysis ? <CompanyAnalysis /> : null}
             </Grid.Column>
