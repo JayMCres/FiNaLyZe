@@ -4,7 +4,7 @@ import Chart from "react-google-charts";
 
 export default class RevenueChart extends Component {
   render() {
-    console.log("Revenue Chart Props", [this.props].length);
+    // console.log("Revenue Chart Props", this.props);
     const data = [
       ["Element", "Rev", { role: "style" }],
       ["2014", this.props.YrOne, "color: #6666ff"], // RGB value

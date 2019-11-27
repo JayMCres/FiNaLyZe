@@ -10,7 +10,6 @@ export default class FinancialSummaryContainer extends Component {
       return (
         <CompanyContainer
           clickedCompanyData={[this.props.clickedCompanyData].map(obj => {
-            console.log("hellooooo", obj);
             return {
               profile: obj[0],
               revenue: obj[1].filter(item => {

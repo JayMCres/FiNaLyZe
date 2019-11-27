@@ -47,7 +47,9 @@ export default class CompanyContainer extends Component {
             ) : null}
           </Segment>
           <Segment inverted>
-            <CompanyFinancial />
+            {[companySummaryData].map((item, index) => {
+              return <CompanyFinancial key={index} {...item} />;
+            })}
           </Segment>
         </Segment>
         <Segment attached="bottom" inverted>
