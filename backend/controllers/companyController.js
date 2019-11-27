@@ -75,7 +75,7 @@ exports.getClickedCompany = async (req, res) => {
   const combinedIS = await profileData.concat(newISData);
   const combinedData = await combinedIS.concat(newCFData);
 
-  console.log("combinedData", combinedData);
+  // console.log("combinedData", combinedData);
 
   res.send(combinedData);
 };
