@@ -122,6 +122,10 @@ export default class CompaniesContainer extends Component {
               companies={this.state.companies}
               clickedCompanyData={this.state.clickedCompanyData}
               clickedCompanyRatios={this.state.clickedCompanyRatios}
+              handleClickedCompanyPost={this.handleClickedCompanyPost}
+              handleCompanyFinancials={this.handleCompanyFinancials}
+              handleRatioPost={this.handleRatioPost}
+              showFinancialSummaryPage={this.showFinancialSummaryPage}
             />
           </Segment>
         )}

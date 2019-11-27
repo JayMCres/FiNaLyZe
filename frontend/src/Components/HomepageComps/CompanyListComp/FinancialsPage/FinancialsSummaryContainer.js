@@ -48,7 +48,13 @@ export default class FinancialSummaryContainer extends Component {
         <Grid.Row>
           <Grid.Column width={6} color="black">
             <Segment inverted style={{ overflow: "auto", maxHeight: 950 }}>
-              <ShortFormTickerList companies={this.props.companies} />
+              <ShortFormTickerList
+                companies={this.props.companies}
+                handleClickedCompanyPost={this.props.handleClickedCompanyPost}
+                handleCompanyFinancials={this.props.handleCompanyFinancials}
+                handleRatioPost={this.props.handleRatioPost}
+                showFinancialSummaryPage={this.props.showFinancialSummaryPage}
+              />
             </Segment>
           </Grid.Column>
           <Grid.Column width={10} color="black">
