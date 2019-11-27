@@ -32,8 +32,14 @@ class NewsItem extends Component {
                         {this.props.title}-{source}
                       </Message.Header>
                       <p>{this.props.description}</p>
-                      <strong>Source: </strong>
-                      <Linkify>{this.props.url}</Linkify>
+                      <strong>
+                        Source:
+                        <Linkify>
+                          <p style={{ overflow: "hidden", whitespace: "pre" }}>
+                            {this.props.url}
+                          </p>
+                        </Linkify>
+                      </strong>
 
                       <br />
                       <div>{this.props.publishedAt}</div>

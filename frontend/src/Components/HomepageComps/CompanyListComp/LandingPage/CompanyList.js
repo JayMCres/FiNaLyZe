@@ -20,7 +20,7 @@ export default class CompanyList extends Component {
   //     });
   // }
   render() {
-    console.log("Company list State", this.state);
+    // console.log("Company list State", this.state);
 
     return (
       // <div>
@@ -37,7 +37,9 @@ export default class CompanyList extends Component {
                   num={index}
                   key={ticker.id}
                   {...ticker}
+                  handleClickedCompanyPost={this.props.handleClickedCompanyPost}
                   showFinancialSummaryPage={this.props.showFinancialSummaryPage}
+                  handleCompanyFinancials={this.props.handleCompanyFinancials}
                 />
               );
             })}

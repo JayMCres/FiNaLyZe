@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import NewsItem from "./NewsItem";
+import { Table, Segment } from "semantic-ui-react";
 
 export default class NewsContainer extends Component {
   state = {
@@ -18,9 +19,14 @@ export default class NewsContainer extends Component {
   }
 
   render() {
-    console.log("News Feed State", this.state);
-    return this.state.articles.map(article => {
-      return <NewsItem {...article} />;
-    });
+    // console.log("News Feed State", this.state);
+
+    return (
+      <Segment inverted style={{ overflow: "auto", maxHeight: 950 }}>
+        {this.state.articles.map(article => {
+          return <NewsItem {...article} />;
+        })}
+      </Segment>
+    );
   }
 }

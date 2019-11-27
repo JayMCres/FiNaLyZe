@@ -3,14 +3,17 @@ import { Segment } from "semantic-ui-react";
 
 import Search from "./LandingPage/Search";
 import CompanyList from "./LandingPage/CompanyList";
-// import CompanyList from "./LandingPage/CompanyList";
 import FinancialsSummaryContainer from "./FinancialsPage/FinancialsSummaryContainer";
 
 export default class CompaniesContainer extends Component {
   state = {
     inputValue: "",
     companies: [],
-    companyFinancialSummary: false
+    companyFinancialSummary: false,
+    clickedCompany: null,
+    response: "",
+    post: "",
+    clickedCompanyData: []
   };
 
   componentDidMount() {
@@ -25,6 +28,30 @@ export default class CompaniesContainer extends Component {
       });
   }
 
+  handleCompanyFinancials = itemId => {
+    const clickedCompany = this.state.companies.find(
+      item => item.id === itemId
+    );
+    // console.log("clicked Company", clickedCompany);
+    this.setState({
+      clickedCompany: clickedCompany,
+      companyFinancialSummary: false
+    });
+  };
+
+  handleClickedCompanyPost = async () => {
+    const response = await fetch("http://localhost:5000/api/company", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ post: this.state.clickedCompany.ticker })
+    });
+    const body = await response.json();
+    this.setState({
+      clickedCompanyData: [...body]
+    });
+  };
   handleChange = event => {
     // console.log("Changing")
     // console.log (event.target.name)
@@ -54,6 +81,7 @@ export default class CompaniesContainer extends Component {
   };
 
   render() {
+    console.log("Companies Container State", this.state);
     return (
       <div>
         {!this.state.companyFinancialSummary ? (
@@ -65,6 +93,8 @@ export default class CompaniesContainer extends Component {
             <CompanyList
               showFinancialSummaryPage={this.showFinancialSummaryPage}
               companies={this.filterCompanies()}
+              handleClickedCompanyPost={this.handleClickedCompanyPost}
+              handleCompanyFinancials={this.handleCompanyFinancials}
             />
           </Segment>
         ) : (
