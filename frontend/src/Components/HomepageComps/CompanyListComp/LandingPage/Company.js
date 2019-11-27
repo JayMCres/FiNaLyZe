@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Linkify from "react-linkify";
 
 import { Message, Table } from "semantic-ui-react";
 
@@ -50,7 +51,7 @@ export default class Company extends Component {
           textAlign="center"
           onClick={() => this.tickerClickHandler()}
         >
-          {this.props.website}
+          <Linkify>{this.props.website}</Linkify>
         </Table.Cell>
       </Table.Row>
     );

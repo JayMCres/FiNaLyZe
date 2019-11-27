@@ -99,7 +99,10 @@ export default class CompaniesContainer extends Component {
           </Segment>
         ) : (
           <Segment inverted>
-            <FinancialsSummaryContainer companies={this.state.companies} />
+            <FinancialsSummaryContainer
+              companies={this.state.companies}
+              clickedCompanyData={this.state.clickedCompanyData}
+            />
           </Segment>
         )}
       </div>

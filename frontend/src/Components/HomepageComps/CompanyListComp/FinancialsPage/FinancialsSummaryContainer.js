@@ -14,7 +14,9 @@ export default class FinancialSummaryContainer extends Component {
             </Segment>
           </Grid.Column>
           <Grid.Column width={10} color="black">
-            <CompanyContainer />
+            <CompanyContainer
+              clickedCompanyData={this.props.clickedCompanyData}
+            />
           </Grid.Column>
         </Grid.Row>
       </Grid>
