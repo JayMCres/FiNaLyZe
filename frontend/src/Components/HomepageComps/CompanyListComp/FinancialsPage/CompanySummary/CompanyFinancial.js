@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
 import { Message, Table } from "semantic-ui-react";
-// import MCRow from "./MCRow";
+
 export default class CompanyFinancial extends Component {
   render() {
-    console.log("Financial Table Props", this.props);
+    // console.log("Financial Table Props", this.props);
     const divisor = 1000;
     return (
       // prettier-ignore

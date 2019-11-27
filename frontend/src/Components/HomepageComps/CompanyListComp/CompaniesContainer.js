@@ -13,7 +13,8 @@ export default class CompaniesContainer extends Component {
     clickedCompany: null,
     response: "",
     post: "",
-    clickedCompanyData: []
+    clickedCompanyData: [],
+    clickedCompanyRatios: []
   };
 
   componentDidMount() {
@@ -52,6 +53,23 @@ export default class CompaniesContainer extends Component {
       clickedCompanyData: [...body]
     });
   };
+
+  handleRatioPost = async () => {
+    // e.preventDefault();
+    const response = await fetch("http://localhost:5000/api/ratios", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ post: this.state.clickedCompany.ticker })
+    });
+    const body = await response.json();
+    // console.log(body);
+    this.setState({
+      clickedCompanyRatios: body
+    });
+  };
+
   handleChange = event => {
     // console.log("Changing")
     // console.log (event.target.name)
@@ -81,7 +99,7 @@ export default class CompaniesContainer extends Component {
   };
 
   render() {
-    // console.log("Companies Container State", this.state);
+    console.log("Companies Container State", this.state);
     return (
       <div>
         {!this.state.companyFinancialSummary ? (
@@ -95,6 +113,7 @@ export default class CompaniesContainer extends Component {
               companies={this.filterCompanies()}
               handleClickedCompanyPost={this.handleClickedCompanyPost}
               handleCompanyFinancials={this.handleCompanyFinancials}
+              handleRatioPost={this.handleRatioPost}
             />
           </Segment>
         ) : (
@@ -102,6 +121,7 @@ export default class CompaniesContainer extends Component {
             <FinancialsSummaryContainer
               companies={this.state.companies}
               clickedCompanyData={this.state.clickedCompanyData}
+              clickedCompanyRatios={this.state.clickedCompanyRatios}
             />
           </Segment>
         )}

@@ -46,14 +46,19 @@ export default class CompanyContainer extends Component {
               </Segment>
             ) : null}
           </Segment>
-          <Segment inverted>
-            {[companySummaryData].map((item, index) => {
-              return <CompanyFinancial key={index} {...item} />;
-            })}
+          <Segment inverted style={{ overflow: "auto", maxHeight: 575 }}>
+            <Segment inverted>
+              {[companySummaryData].map((item, index) => {
+                return <CompanyFinancial key={index} {...item} />;
+              })}
+            </Segment>
+
+            <Segment attached="bottom" inverted>
+              {this.props.clickedCompanyRatios.map((item, index) => {
+                return <CompanyRatio key={index} {...item} />;
+              })}
+            </Segment>
           </Segment>
-        </Segment>
-        <Segment attached="bottom" inverted>
-          <CompanyRatio />
         </Segment>
       </div>
     );

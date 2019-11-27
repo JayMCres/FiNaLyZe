@@ -40,6 +40,7 @@ export default class CompanyList extends Component {
                   handleClickedCompanyPost={this.props.handleClickedCompanyPost}
                   showFinancialSummaryPage={this.props.showFinancialSummaryPage}
                   handleCompanyFinancials={this.props.handleCompanyFinancials}
+                  handleRatioPost={this.props.handleRatioPost}
                 />
               );
             })}

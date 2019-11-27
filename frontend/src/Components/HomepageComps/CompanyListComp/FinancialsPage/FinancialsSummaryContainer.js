@@ -9,6 +9,7 @@ export default class FinancialSummaryContainer extends Component {
     } else {
       return (
         <CompanyContainer
+          clickedCompanyRatios={this.props.clickedCompanyRatios}
           clickedCompanyData={[this.props.clickedCompanyData].map(obj => {
             return {
               profile: obj[0],
@@ -40,7 +41,7 @@ export default class FinancialSummaryContainer extends Component {
     }
   };
   render() {
-    console.log("Financial Summary Props", this.props);
+    // console.log("Financial Summary Props", this.props);
     return (
       <Grid columns={2} textAlign="center">
         {/* <Divider vertical>Or</Divider> */}
@@ -52,9 +53,6 @@ export default class FinancialSummaryContainer extends Component {
           </Grid.Column>
           <Grid.Column width={10} color="black">
             <Segment inverted>{this.renderMainCompany()}</Segment>
-            {/* <CompanyContainer
-              clickedCompanyData={this.props.clickedCompanyData}
-            /> */}
           </Grid.Column>
         </Grid.Row>
       </Grid>

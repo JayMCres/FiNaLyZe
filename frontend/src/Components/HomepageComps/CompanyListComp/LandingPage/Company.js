@@ -8,6 +8,7 @@ export default class Company extends Component {
     await this.props.handleCompanyFinancials(this.props.id);
     await this.props.showFinancialSummaryPage();
     await this.props.handleClickedCompanyPost();
+    await this.props.handleRatioPost();
   };
 
   render() {
