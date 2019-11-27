@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Menu, Message, Segment, Grid, Image } from "semantic-ui-react";
+import { Menu, Message, Segment, Grid, Image, Button } from "semantic-ui-react";
 import Linkify from "react-linkify";
 
 export default class CompanyProfile extends Component {
@@ -47,9 +47,21 @@ export default class CompanyProfile extends Component {
         <Message attached content="Message" icon="help circle" info>
           {this.props.description}
         </Message>
-        <Segment attached>
-          <Linkify>{this.props.website}</Linkify>
-        </Segment>
+
+        <Menu attached compact widths={2}>
+          <Menu.Item as="a">
+            <Linkify>{this.props.website}</Linkify>
+          </Menu.Item>
+          <Menu.Item as="a">
+            <Button
+              animated="fade"
+              onClick={() => this.props.handleChartToggle()}
+            >
+              <Button.Content visible>Financial Charts</Button.Content>
+              <Button.Content hidden>Show/Hide</Button.Content>
+            </Button>
+          </Menu.Item>
+        </Menu>
       </div>
     );
   }
