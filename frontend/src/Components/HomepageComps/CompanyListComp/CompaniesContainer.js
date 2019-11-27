@@ -81,7 +81,7 @@ export default class CompaniesContainer extends Component {
   };
 
   render() {
-    console.log("Companies Container State", this.state);
+    // console.log("Companies Container State", this.state);
     return (
       <div>
         {!this.state.companyFinancialSummary ? (

@@ -16,8 +16,11 @@ export default class CompanyContainer extends Component {
   };
 
   render() {
-    const companyProfile = this.props.clickedCompanyData[0];
-    const companyProfileArray = [companyProfile];
+    console.log("Company Conatiner Props", this.props);
+    const companySummaryData = this.props.clickedCompanyData[0];
+    const companyProfileArray = [companySummaryData.profile];
+    const companyRevenueArray = companySummaryData.revenue;
+    const companyEbitdaArray = companySummaryData.ebitda;
     // console.log("Clicked Company Profile", companyProfileArray);
     return (
       <div>
@@ -36,7 +39,10 @@ export default class CompanyContainer extends Component {
           <Segment inverted>
             {this.state.chartToggle ? (
               <Segment inverted>
-                <ChartContainer />
+                <ChartContainer
+                  companyRevenueArray={companyRevenueArray}
+                  companyEbitdaArray={companyEbitdaArray}
+                />
               </Segment>
             ) : null}
           </Segment>

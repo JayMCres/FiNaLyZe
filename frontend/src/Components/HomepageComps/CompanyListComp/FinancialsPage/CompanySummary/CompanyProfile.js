@@ -5,7 +5,7 @@ import Linkify from "react-linkify";
 export default class CompanyProfile extends Component {
   render() {
     const marketCap = parseInt(this.props.MktCap) / 1000000;
-    console.log("Company Profile Props", this.props);
+    // console.log("Company Profile Props", this.props);
     return (
       <div>
         <Segment inverted attached="top">
