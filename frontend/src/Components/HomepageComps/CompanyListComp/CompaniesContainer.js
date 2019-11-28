@@ -8,7 +8,7 @@ import FinancialsSummaryContainer from "./FinancialsPage/FinancialsSummaryContai
 export default class CompaniesContainer extends Component {
   state = {
     inputValue: "",
-    companies: [],
+    // companies: [],
     companyFinancialSummary: false,
     clickedCompany: null,
     response: "",
@@ -17,20 +17,20 @@ export default class CompaniesContainer extends Component {
     clickedCompanyRatios: []
   };
 
-  componentDidMount() {
-    fetch("http://localhost:5000/api/tickers")
-      .then(response => {
-        return response.json();
-      })
-      .then(companies => {
-        return this.setState({
-          companies: companies
-        });
-      });
-  }
+  // componentDidMount() {
+  //   fetch("http://localhost:5000/api/tickers")
+  //     .then(response => {
+  //       return response.json();
+  //     })
+  //     .then(companies => {
+  //       return this.setState({
+  //         companies: companies
+  //       });
+  //     });
+  // }
 
   handleCompanyFinancials = itemId => {
-    const clickedCompany = this.state.companies.find(
+    const clickedCompany = this.props.companies.find(
       item => item.id === itemId
     );
     // console.log("clicked Company", clickedCompany);
@@ -79,7 +79,7 @@ export default class CompaniesContainer extends Component {
   };
 
   filterCompanies = () =>
-    this.state.companies.filter(item => {
+    this.props.companies.filter(item => {
       return (
         item.name.toLowerCase().includes(this.state.inputValue.toLowerCase()) ||
         item.ticker
@@ -99,7 +99,7 @@ export default class CompaniesContainer extends Component {
   };
 
   render() {
-    console.log("Companies Container State", this.state);
+    // console.log("Companies Container State", this.state);
     return (
       <div>
         {!this.state.companyFinancialSummary ? (
@@ -119,7 +119,7 @@ export default class CompaniesContainer extends Component {
         ) : (
           <Segment inverted>
             <FinancialsSummaryContainer
-              companies={this.state.companies}
+              companies={this.props.companies}
               clickedCompanyData={this.state.clickedCompanyData}
               clickedCompanyRatios={this.state.clickedCompanyRatios}
               handleClickedCompanyPost={this.handleClickedCompanyPost}
