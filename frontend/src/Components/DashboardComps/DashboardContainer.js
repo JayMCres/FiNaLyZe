@@ -43,7 +43,9 @@ export default class DashboardContainer extends Component {
           </Grid.Column>
           <Grid.Column width={6}>
             <Segment inverted>
-              <SideCardContainer />
+              <SideCardContainer
+                valuationMetrics={this.state.valuationMetrics}
+              />
             </Segment>
             <Segment
               // attached="bottom"
