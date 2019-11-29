@@ -10,9 +10,15 @@ exports.favsList = (req, res) => {
     .catch(error => res.status(400).send(error));
 };
 
+exports.getUsers = (req, res) => {
+  return User.findAll()
+    .then(users => res.status(200).send(users))
+    .catch(error => res.status(400).send(error));
+};
+
 const handleResponse = res => {
   return data => {
-    // console.log(data);
+    console.log(data);
     res.send(data);
   };
 };

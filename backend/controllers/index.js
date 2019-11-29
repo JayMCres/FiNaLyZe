@@ -1,10 +1,12 @@
+const usersController = require("./usersController");
 const stockTickerController = require("./stockTickerController");
 const newsArticleController = require("./newsArticleController");
 const marketIndexController = require("./marketIndexController");
 const companyController = require("./companyController");
 const companyRatioController = require("./companyRatioController");
 const valueMetricsController = require("./valueMetricsController");
-const usersController = require("./usersController");
+const companyProfileController = require("./companyProfileController");
+const favoriteController = require("./favoriteController");
 
 module.exports = {
   usersController,
@@ -13,5 +15,7 @@ module.exports = {
   marketIndexController,
   companyController,
   companyRatioController,
-  valueMetricsController
+  valueMetricsController,
+  companyProfileController,
+  favoriteController
 };

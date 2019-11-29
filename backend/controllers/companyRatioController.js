@@ -31,7 +31,7 @@ exports.getFinancialRatios = async (req, res) => {
       ...item[5]
     };
   });
-  // console.log("combinedRatio", combinedRatio);
+  console.log("combinedRatio", combinedRatio);
 
   res.send(combinedRatio);
 };
