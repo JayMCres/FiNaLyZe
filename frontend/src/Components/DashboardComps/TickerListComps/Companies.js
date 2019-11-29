@@ -6,7 +6,7 @@ import CompanyCard from "./CompanyCard";
 
 export default class Companies extends Component {
   render() {
-    // console.log("Company list State", this.state);
+    // console.log("Company list Props", this.props);
 
     return (
       <Segment inverted>
@@ -19,6 +19,8 @@ export default class Companies extends Component {
                 {...ticker}
                 handleClickedTicker={this.props.handleClickedTicker}
                 handleValueMetricPost={this.props.handleValueMetricPost}
+                handleProfilePost={this.props.handleProfilePost}
+                addToWatchList={this.props.addToWatchList}
               />
             );
           })}

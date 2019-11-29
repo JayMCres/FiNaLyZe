@@ -14,7 +14,9 @@ class HomePage extends Component {
     CompanyList: false,
     clickedTicker: null,
     response: "",
-    post: ""
+    post: "",
+    watchList: [],
+    favorites: []
   };
 
   componentDidMount() {
@@ -27,6 +29,11 @@ class HomePage extends Component {
           companies: companies
         });
       });
+    const setWatchList = async () => {
+      this.setState({ watchList: this.props.currentUser.favorites });
+    };
+
+    setWatchList();
   }
 
   handleClickedTicker = itemId => {
@@ -34,6 +41,59 @@ class HomePage extends Component {
     // console.log("clicked Company", clickedCompany);
     this.setState({
       clickedTicker: clickedTicker
+    });
+  };
+
+  addToWatchList = itemId => {
+    const userId = this.props.currentUser.id;
+    const foundTicker = this.state.companies.find(item => item.id === itemId);
+
+    // console.log("firing Wishlist", foundTicker);
+    const preventDoubles = this.state.watchList.find(
+      item => item.companyId === itemId
+    );
+    // if (!preventDoubles) {
+    //   this.setState({
+    //     watchlist: [...this.state.watchList, foundTicker]
+    //   });
+    // }
+    if (!preventDoubles) {
+      fetch("http://localhost:5000/api/user_favorite/", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          foundTicker,
+          userId
+        })
+      })
+        .then(response => response.json())
+        .then(newFav => this.addNewItemToWatchList(newFav));
+    }
+  };
+
+  addNewItemToWatchList = newFav => {
+    this.setState({
+      watchList: [...this.state.watchList, newFav]
+    });
+  };
+
+  removeFromWatchList = favId => {
+    const deleteFavorite = this.state.watchList.find(item => item.id === favId);
+    console.log("delete Favorite", deleteFavorite);
+    const updateWatchList = this.state.watchList.filter(item => {
+      return item.id !== favId;
+    });
+    if (deleteFavorite) {
+      this.setState({
+        watchList: updateWatchList
+      });
+    }
+
+    fetch(`http://localhost:5000/api/delete_favorite/${favId}`, {
+      method: "DELETE"
     });
   };
 
@@ -61,7 +121,7 @@ class HomePage extends Component {
   };
 
   render() {
-    // console.log("Homepage State", this.state);
+    console.log("Homepage State", this.state);
     return (
       <Segment inverted>
         <Segment inverted>
@@ -103,6 +163,8 @@ class HomePage extends Component {
                   clickedTicker={this.state.clickedTicker}
                   handleClickedTicker={this.handleClickedTicker}
                   companies={this.state.companies}
+                  addToWatchList={this.addToWatchList}
+                  watchlist={this.state.watchList}
                 />
               ) : null}
               {this.state.CompanyList ? (

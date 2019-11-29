@@ -1,19 +1,41 @@
 import React, { Component } from "react";
-import { Segment, Grid } from "semantic-ui-react";
-import CompanySideCard from "./WatchListComps/CompanySideCard";
+import { Segment, Message, Icon } from "semantic-ui-react";
+// import CompanySideCard from "./CompanySideCard";
+
+import SideCardHeader from "./SideCardHeader";
+import SideCardValues from "./SideCardValues";
 
 export default class SideCardContainer extends Component {
   render() {
-    console.log("Sidecard Props", this.props.valuationMetrics.length);
+    const sidecardData = Object.assign(
+      this.props.valuationMetrics,
+      this.props.companyProfile
+    );
+    // console.log("Sidecard Data", sidecardData);
     if (this.props.valuationMetrics.length === 0) {
-      return <div>CLICK COMPANY</div>;
+      return (
+        <Message icon>
+          <Icon name="circle notched" loading />
+          <Message.Content>
+            <Message.Header>NO COMPANY SELECTED</Message.Header>
+            Choose Company Please
+          </Message.Content>
+        </Message>
+      );
     } else {
       return (
-        <Segment inverted>
-          {[this.props.valuationMetrics].map(metric => {
-            return <CompanySideCard {...metric} />;
-          })}
-        </Segment>
+        <div>
+          <Segment attached="top">
+            {[this.props.companyProfile].map(item => {
+              return <SideCardHeader {...item} />;
+            })}
+          </Segment>
+          <Segment attached="top">
+            {[this.props.valuationMetrics].map(item => {
+              return <SideCardValues {...item} />;
+            })}
+          </Segment>
+        </div>
       );
     }
   }

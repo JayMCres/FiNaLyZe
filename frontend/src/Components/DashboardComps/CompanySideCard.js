@@ -54,7 +54,9 @@ const CompanySideCard = props => {
       </Message>
 
       <Segment attached>
-        <Button>Company Page</Button>
+        <Button onClick={() => props.displayCompanyDetailPage()}>
+          Company Page
+        </Button>
       </Segment>
     </div>
   );

@@ -22,6 +22,7 @@ export default class DashboardList extends Component {
                   {...company}
                   handleClickedTicker={this.props.handleClickedTicker}
                   handleValueMetricPost={this.props.handleValueMetricPost}
+                  handleProfilePost={this.props.handleProfilePost}
                 />
               );
             })}

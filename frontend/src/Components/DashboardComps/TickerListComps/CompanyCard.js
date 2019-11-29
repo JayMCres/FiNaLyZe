@@ -7,6 +7,7 @@ export default class CompanyCard extends Component {
   dashboardInfoHandler = async () => {
     await this.props.handleClickedTicker(this.props.id);
     await this.props.handleValueMetricPost();
+    await this.props.handleProfilePost();
   };
 
   render() {
@@ -32,7 +33,11 @@ export default class CompanyCard extends Component {
 
         <Card.Content extra>
           <div className="ui two buttons">
-            <Button basic color="violet">
+            <Button
+              basic
+              color="violet"
+              onClick={() => this.props.addToWatchList(this.props.id)}
+            >
               Add to Watchlist
             </Button>
             <Button
