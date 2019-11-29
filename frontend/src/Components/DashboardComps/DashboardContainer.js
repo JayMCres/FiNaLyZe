@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Segment, Grid } from "semantic-ui-react";
-import DashboardList from "./TickerListComps/DashboardList";
+import Companies from "./TickerListComps/Companies";
 import SideCardContainer from "./SideCardContainer";
 
 export default class DashboardContainer extends Component {
@@ -33,7 +33,7 @@ export default class DashboardContainer extends Component {
         <Grid columns={2} divided>
           <Grid.Column width={10}>
             <Segment inverted style={{ overflow: "auto", maxHeight: 950 }}>
-              <DashboardList
+              <Companies
                 companies={this.props.companies}
                 handleClickedTicker={this.props.handleClickedTicker}
                 handleValueMetricPost={this.handleValueMetricPost}

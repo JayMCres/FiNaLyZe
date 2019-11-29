@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Segment } from "semantic-ui-react";
+import { Segment, Label, Icon } from "semantic-ui-react";
 
 import Search from "./LandingPage/Search";
 import CompanyList from "./LandingPage/CompanyList";
@@ -118,6 +118,12 @@ export default class CompaniesContainer extends Component {
           </Segment>
         ) : (
           <Segment inverted>
+            <Label as="a" corner="right" color="blue">
+              <Icon
+                name="remove"
+                onClick={() => this.showFinancialSummaryPage()}
+              />
+            </Label>
             <FinancialsSummaryContainer
               companies={this.props.companies}
               clickedCompanyData={this.state.clickedCompanyData}

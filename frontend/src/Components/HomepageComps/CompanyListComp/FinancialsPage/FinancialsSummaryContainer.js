@@ -7,41 +7,46 @@ export default class FinancialSummaryContainer extends Component {
     if (this.props.clickedCompanyData.length === 0) {
       return <Message color="blue">Select Company</Message>;
     } else {
-      return (
-        <CompanyContainer
-          clickedCompanyRatios={this.props.clickedCompanyRatios}
-          clickedCompanyData={[this.props.clickedCompanyData].map(obj => {
-            return {
-              profile: obj[0],
-              revenue: obj[1].filter(item => {
-                return item.label === "Revenue";
-              }),
-              ebit: obj[1].filter(item => {
-                return item.label === "Operating income";
-              }),
-              ebitda: obj[1].filter(item => {
-                return item.label === "EBITDA";
-              }),
-              ni: obj[1].filter(item => {
-                return item.label === "Net income";
-              }),
-              ocf: obj[2].filter(item => {
-                return item.label === "Operating cash flow";
-              }),
-              capex: obj[2].filter(item => {
-                return item.label === "Capital expenditure";
-              }),
-              fcf: obj[2].filter(item => {
-                return item.label === "Free cash flow";
-              })
-            };
-          })}
-        />
-      );
+      if (this.props.clickedCompanyData.length > 3) {
+        return <Message color="blue">Company Unavaliable</Message>;
+      } else {
+        return (
+          <CompanyContainer
+            clickedCompanyRatios={this.props.clickedCompanyRatios}
+            clickedCompanyData={[this.props.clickedCompanyData].map(obj => {
+              console.log("clicked Object", obj);
+              return {
+                profile: obj[0],
+                revenue: obj[1].filter(item => {
+                  return item.label === "Revenue";
+                }),
+                ebit: obj[1].filter(item => {
+                  return item.label === "Operating income";
+                }),
+                ebitda: obj[1].filter(item => {
+                  return item.label === "EBITDA";
+                }),
+                ni: obj[1].filter(item => {
+                  return item.label === "Net income";
+                }),
+                ocf: obj[2].filter(item => {
+                  return item.label === "Operating cash flow";
+                }),
+                capex: obj[2].filter(item => {
+                  return item.label === "Capital expenditure";
+                }),
+                fcf: obj[2].filter(item => {
+                  return item.label === "Free cash flow";
+                })
+              };
+            })}
+          />
+        );
+      }
     }
   };
   render() {
-    // console.log("Financial Summary Props", this.props);
+    console.log("Financial Summary Props", this.props);
     return (
       <Grid columns={2} textAlign="center">
         {/* <Divider vertical>Or</Divider> */}

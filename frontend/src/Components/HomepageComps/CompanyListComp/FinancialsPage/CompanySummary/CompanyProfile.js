@@ -13,7 +13,7 @@ export default class CompanyProfile extends Component {
             <Grid.Row>
               <Grid.Column width={2}>
                 <Image
-                  circular
+                  // circular
                   centered
                   bordered
                   // floated="left"
