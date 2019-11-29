@@ -4,7 +4,10 @@ const marketIndexController = require("./marketIndexController");
 const companyController = require("./companyController");
 const companyRatioController = require("./companyRatioController");
 const valueMetricsController = require("./valueMetricsController");
+const usersController = require("./usersController");
+
 module.exports = {
+  usersController,
   stockTickerController,
   newsArticleController,
   marketIndexController,

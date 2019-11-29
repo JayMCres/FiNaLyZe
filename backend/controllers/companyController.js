@@ -20,6 +20,7 @@ exports.getClickedCompany = async (req, res) => {
 
   let originalISObj = await annualDataIS.map(item => {
     const values = Object.values(item);
+    console.log(values);
     const labels = Object.keys(item);
     return { label: labels, value: values };
   });
@@ -27,7 +28,7 @@ exports.getClickedCompany = async (req, res) => {
   let newISData = await originalISObj.map(item => {
     const labels = Object.values(item.label);
     const newValues = Object.values(item.value);
-
+    // console.log(newValues);
     const isItems = newValues.map((item, index) => {
       const is = Object.values(item);
       return {
