@@ -33,7 +33,7 @@ export default class WatchItem extends Component {
         <Message color="blue" attached="top">
           <Header as="h4">
             <Icon
-              name="file alternate"
+              name="folder open"
               size="mini"
               onClick={() => this.props.togglePopup(this.props.id)}
             />

@@ -4,10 +4,6 @@ import { Form, Segment, Button } from "semantic-ui-react";
 import "../../App.css";
 
 import NoteContainer from "./NoteContainer";
-// import Metrics from "./Metrics";
-// import Financials from "./Financials";
-// import EbitdaChart from "./EbitdaChart";
-// import PriceChart from "./PriceChart";
 
 class NoteContainer extends Component {
   render() {
