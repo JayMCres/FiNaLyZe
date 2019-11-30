@@ -38,50 +38,46 @@ class NoteForm extends Component {
   //     );
   // };
 
-  // addNote = event => {
-  //   // const target = event.target;
-  //   // const value = target.value;
-  //   // const name = target.name;
-  //   event.preventDefault();
-  //   // console.log(event.target)
-  //   fetch("http://localhost:5000/api/user_note", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Accept: "application/json"
-  //     },
-  //     body: JSON.stringify({
-  //       favId: this.props.clickedFavorite.id,
-  //       favTicker: this.props.clickedFavorite.ticker,
-  //       favName: this.props.clickedFavorite.name,
-  //       title: this.refs.title.value,
-  //       content: this.refs.body.value,
-  //       userId: this.props.user.id
-  //     })
-  //   })
-  //     .then(response => response.json())
-  //     .then(newNote => this.props.addNewNoteToNotes(newNote))
-  //     .then(
-  //       this.setState({
-  //         title: "",
-  //         body: ""
-  //       })
-  //     );
-  // };
+  addNote = event => {
+    // const target = event.target;
+    // const value = target.value;
+    // const name = target.name;
+    event.preventDefault();
+    // console.log(event.target)
+    fetch("http://localhost:5000/api/user_note", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        favId: this.props.clickedFavorite.id,
+        favTicker: this.props.clickedFavorite.ticker,
+        favName: this.props.clickedFavorite.name,
+        title: this.refs.title.value,
+        content: this.refs.body.value,
+        userId: this.props.user.id
+      })
+    })
+      .then(response => response.json())
+      .then(newNote => this.props.addNewNoteToNotes(newNote))
+      .then(
+        this.setState({
+          title: "",
+          body: ""
+        })
+      );
+  };
 
-  // handleInputChange = event => {
-  //   // console.log("typing")
-  //   //  console.log(event.target)
-  //   //  console.log(event.target.value)
+  handleInputChange = event => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
 
-  //   const target = event.target;
-  //   const value = target.value;
-  //   const name = target.name;
-
-  //   this.setState({ [name]: value });
-  // };
+    this.setState({ [name]: value });
+  };
   render() {
-    // console.log("Form", this.props);
+    console.log("Note Form", this.props);
     return (
       <div>
         {/* <form onSubmit={this.addNote}> */}

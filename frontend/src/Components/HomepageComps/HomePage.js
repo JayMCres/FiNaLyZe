@@ -160,6 +160,7 @@ class HomePage extends Component {
             <Grid.Column width={14}>
               {this.state.dashBoard ? (
                 <DashboardContainer
+                  currentUser={this.props.currentUser}
                   clickedTicker={this.state.clickedTicker}
                   handleClickedTicker={this.handleClickedTicker}
                   companies={this.state.companies}

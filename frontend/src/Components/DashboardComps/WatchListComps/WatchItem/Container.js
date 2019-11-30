@@ -5,8 +5,37 @@ import WatchHeader from "./Header";
 import Notes from "./Notes";
 
 export default class Container extends Component {
+  state = {
+    currentNotes: [],
+    WatchListNote: null
+  };
+
+  // componentDidMount() {
+  //   // const setCurrentNotes = async () => {
+  //   //   return this.setState({
+  //   //     currentNotes: this.props.notes.filter(note => {
+  //   //       return note.favTicker === this.props.ticker;
+  //   //     })
+  //   //   });
+  //   // };
+
+  //   this.setCurrentNotes();
+  // }
+
+  // setCurrentNotes = () => {
+  //   const foundNotes = this.props.notes.filter(note => {
+  //     return note.favTicker === this.props.ticker;
+  //   });
+  //   return this.setState({
+  //     currentNotes: foundNotes
+  //   });
+  // };
   render() {
-    console.log("watchitem", this.props, this.state);
+    // console.log("watch item Container State", this.props);
+    const foundNotes = this.props.notes.filter(note => {
+      return note.favTicker === this.props.ticker;
+    });
+    // console.log("found notes", foundNotes);
     return (
       <Segment inverted>
         <Message color="blue" attached="top">
@@ -21,7 +50,7 @@ export default class Container extends Component {
           </Header>
         </Message>
         {/* <Segment */}
-        {this.props.notes.length === 0 ? (
+        {foundNotes.length === 0 ? (
           <Message> No Notes </Message>
         ) : (
           <Message
@@ -29,7 +58,7 @@ export default class Container extends Component {
             inverted
             style={{ overflow: "auto", maxHeight: 100 }}
           >
-            <Notes notes={this.props.notes} />
+            <Notes notes={foundNotes} />
           </Message>
         )}
       </Segment>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, Segment, Button } from "semantic-ui-react";
 
 import "./Popup.css";
+import NoteForm from "./NoteForm";
 
 // import NoteContainer from "./NoteContainer";
 // import Metrics from "./Metrics";
@@ -24,11 +25,11 @@ class NotePopUp extends Component {
                 </Button>
                 <br />
                 <br />
-                Test
-                {/* <NoteContainer
+
+                <NoteForm
                   user={this.props.user}
                   addNewNoteToNotes={this.props.addNewNoteToNotes}
-                  clickedFavorite={this.props.clickedFavorite} */}
+                  clickedFavorite={this.props.clickedFavorite}
                 />
               </Segment>
             </div>

@@ -11,6 +11,7 @@ export default class WatchListContainer extends Component {
       return (
         <WatchList
           watchlist={[this.props.watchlist]}
+          notes={this.props.notes}
           togglePopup={this.props.togglePopup}
         />
       );

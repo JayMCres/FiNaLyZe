@@ -5,9 +5,8 @@ import Note from "./Note";
 const Notes = props => {
   return (
     <List divided relaxed>
-      {props.notes.map(item => {
-        // console.log(item);
-        return <Note {...item} />;
+      {props.notes.map((note, index) => {
+        return <Note key={note.id} {...note} />;
       })}
     </List>
   );

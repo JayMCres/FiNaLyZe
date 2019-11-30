@@ -26,6 +26,19 @@ export default class DashboardContainer extends Component {
     clickedFavorite: null
   };
 
+  componentDidMount() {
+    fetch("http://localhost:5000/api/notes")
+      .then(response => {
+        return response.json();
+      })
+      .then(notes => {
+        const userNotes = notes.filter(note => {
+          return note.userId === this.props.currentUser.id;
+        });
+        return this.setState({ notes: userNotes });
+      });
+  }
+
   handleValueMetricPost = async () => {
     // e.preventDefault();
     const response = await fetch("http://localhost:5000/api/valuation", {
@@ -66,15 +79,20 @@ export default class DashboardContainer extends Component {
     const clickedFavorite = this.props.watchlist.find(
       item => item.id === itemId
     );
-    console.log("showing Favorite", clickedFavorite);
+    // console.log("showing Favorite", clickedFavorite);
     this.setState({
       showPopup: !this.state.showPopup,
       clickedFavorite: clickedFavorite
     });
   };
 
+  addNewNoteToNotes = newNote => {
+    this.setState({
+      notes: [...this.state.notes, newNote]
+    });
+  };
   render() {
-    console.log("dashboard Props", this.props);
+    // console.log("dashboard Props", this.state);
     return (
       <div>
         {!this.state.companyDetailsPage ? (
@@ -131,7 +149,7 @@ export default class DashboardContainer extends Component {
             user={this.props.currentUser}
             closePopup={this.togglePopup}
             clickedFavorite={this.state.clickedFavorite}
-            // addNewNoteToNotes={this.addNewNoteToNotes}
+            addNewNoteToNotes={this.addNewNoteToNotes}
           />
         ) : null}
       </div>

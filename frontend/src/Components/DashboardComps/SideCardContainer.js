@@ -7,10 +7,6 @@ import SideCardValues from "./SideCardValues";
 
 export default class SideCardContainer extends Component {
   render() {
-    const sidecardData = Object.assign(
-      this.props.valuationMetrics,
-      this.props.companyProfile
-    );
     // console.log("Sidecard Data", sidecardData);
     if (this.props.valuationMetrics.length === 0) {
       return (
@@ -32,7 +28,12 @@ export default class SideCardContainer extends Component {
           </Segment>
           <Segment attached="top">
             {[this.props.valuationMetrics].map(item => {
-              return <SideCardValues {...item} />;
+              return (
+                <SideCardValues
+                  {...item}
+                  displayCompanyDetailPage={this.props.displayCompanyDetailPage}
+                />
+              );
             })}
           </Segment>
         </div>
