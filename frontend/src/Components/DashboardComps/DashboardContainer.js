@@ -8,9 +8,9 @@ import {
   Icon
 } from "semantic-ui-react";
 import Companies from "./TickerListComps/Companies";
-import SideCardContainer from "./SideCardContainer";
+import SideCardContainer from "./WatchListComps/SideCardComps/SideCardContainer";
 import WatchListContainer from "./WatchListComps/WatchList";
-import NotePopUp from "./NotesComps/NotePopUp";
+import NotePopUp from "./WatchListComps/NoteComps/NotePopUp";
 
 import CompanyDetails from "../CompanyComponents/CompanyDetails";
 

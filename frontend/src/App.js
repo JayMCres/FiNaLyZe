@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
 
-import MainContainer from "./MainContainer";
+import MainContainer from "./Components/LoginComponents/MainContainer";
 
 import { Segment, Grid, Button, Header } from "semantic-ui-react";
 
-import Signup from "./Signup";
-import Login from "./Login";
+import Signup from "./Components/LoginComponents/Signup";
+import Login from "./Components/LoginComponents/Login";
 export default class App extends Component {
   state = {
     // consider moving this down

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import { Segment } from "semantic-ui-react";
 
-import WatchItem from "./WatchItem/Container";
+import FoundNotes from "./WatchItemComps/FoundNotes";
 
 export default class WatchList extends Component {
   renderWatchList = () => {
@@ -11,9 +11,9 @@ export default class WatchList extends Component {
       return (
         <div>
           {this.props.watchlist.map(item => {
-            console.log(item);
+            // console.log(item);
             return (
-              <WatchItem
+              <FoundNotes
                 {...item}
                 notes={this.props.notes}
                 togglePopup={this.props.togglePopup}

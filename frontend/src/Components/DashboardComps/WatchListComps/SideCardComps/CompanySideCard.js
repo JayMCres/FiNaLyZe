@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Menu, Message, Segment, Table } from "semantic-ui-react";
 
 const CompanySideCard = props => {
-  console.log(" Company Sidecard Props", props);
+  // console.log(" Company Sidecard Props", props);
 
   return (
     <div>

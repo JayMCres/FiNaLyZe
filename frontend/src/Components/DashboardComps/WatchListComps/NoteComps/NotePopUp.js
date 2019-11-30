@@ -4,12 +4,6 @@ import { Form, Segment, Button } from "semantic-ui-react";
 import "./Popup.css";
 import NoteForm from "./NoteForm";
 
-// import NoteContainer from "./NoteContainer";
-// import Metrics from "./Metrics";
-// import Financials from "./Financials";
-// import EbitdaChart from "./EbitdaChart";
-// import PriceChart from "./PriceChart";
-
 class NotePopUp extends Component {
   render() {
     // console.log("Popup", this.props);

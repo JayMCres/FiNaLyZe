@@ -10,7 +10,7 @@ import {
 } from "semantic-ui-react";
 
 const SideCardHeader = props => {
-  console.log(" SideCardHeader Props", props);
+  // console.log(" SideCardHeader Props", props);
 
   return (
     // <Segment inverted>

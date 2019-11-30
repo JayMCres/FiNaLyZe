@@ -121,7 +121,7 @@ class HomePage extends Component {
   };
 
   render() {
-    console.log("Homepage State", this.state);
+    // console.log("Homepage State", this.state);
     return (
       <Segment inverted>
         <Segment inverted>

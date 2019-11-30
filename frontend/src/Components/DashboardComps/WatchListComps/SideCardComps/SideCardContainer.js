@@ -26,7 +26,7 @@ export default class SideCardContainer extends Component {
               return <SideCardHeader {...item} />;
             })}
           </Segment>
-          <Segment attached="top">
+          <Segment attached="Bottom">
             {[this.props.valuationMetrics].map(item => {
               return (
                 <SideCardValues

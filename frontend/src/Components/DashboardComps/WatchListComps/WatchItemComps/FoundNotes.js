@@ -1,35 +1,14 @@
 import React, { Component } from "react";
 import { Header, Button, Segment, Message, Icon } from "semantic-ui-react";
 
-import WatchHeader from "./Header";
 import Notes from "./Notes";
 
-export default class Container extends Component {
+export default class FoundNotes extends Component {
   state = {
     currentNotes: [],
     WatchListNote: null
   };
 
-  // componentDidMount() {
-  //   // const setCurrentNotes = async () => {
-  //   //   return this.setState({
-  //   //     currentNotes: this.props.notes.filter(note => {
-  //   //       return note.favTicker === this.props.ticker;
-  //   //     })
-  //   //   });
-  //   // };
-
-  //   this.setCurrentNotes();
-  // }
-
-  // setCurrentNotes = () => {
-  //   const foundNotes = this.props.notes.filter(note => {
-  //     return note.favTicker === this.props.ticker;
-  //   });
-  //   return this.setState({
-  //     currentNotes: foundNotes
-  //   });
-  // };
   render() {
     // console.log("watch item Container State", this.props);
     const foundNotes = this.props.notes.filter(note => {
