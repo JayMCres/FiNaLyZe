@@ -18,6 +18,7 @@ export default class WatchList extends Component {
                 notes={this.props.notes}
                 togglePopup={this.props.togglePopup}
                 removeFromWatchList={this.props.removeFromWatchList}
+                removeNoteFromNotes={this.props.removeNoteFromNotes}
               />
             );
           })}

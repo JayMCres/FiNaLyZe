@@ -12,7 +12,7 @@ import SideCardContainer from "./WatchListComps/SideCardComps/SideCardContainer"
 import WatchListContainer from "./WatchListComps/WatchList";
 import NotePopUp from "./WatchListComps/NoteComps/NotePopUp";
 
-import CompanyDetails from "../CompanyComponents/CompanyDetails";
+import CompanyDetails from "../CompanyComponents/DetailsContainer";
 
 export default class DashboardContainer extends Component {
   state = {
@@ -40,7 +40,6 @@ export default class DashboardContainer extends Component {
   }
 
   handleValueMetricPost = async () => {
-    // e.preventDefault();
     const response = await fetch("http://localhost:5000/api/valuation", {
       method: "POST",
       headers: {
@@ -56,7 +55,6 @@ export default class DashboardContainer extends Component {
   };
 
   handleProfilePost = async () => {
-    // e.preventDefault();
     const response = await fetch("http://localhost:5000/api/profile", {
       method: "POST",
       headers: {
@@ -92,8 +90,25 @@ export default class DashboardContainer extends Component {
     });
   };
 
+  removeNoteFromNotes = noteId => {
+    const deleteNote = this.state.notes.find(item => item.id === noteId);
+    console.log("delete Note", deleteNote, noteId);
+    const updateNote = this.state.notes.filter(item => {
+      return item.id !== noteId;
+    });
+    if (deleteNote) {
+      this.setState({
+        notes: updateNote
+      });
+
+      fetch(`http://localhost:5000/api/delete_note/${noteId}`, {
+        method: "DELETE"
+      });
+    }
+  };
+
   render() {
-    // console.log("dashboard Props", this.state);
+    console.log("dashboard Props", this.state);
     return (
       <div>
         {!this.state.companyDetailsPage ? (
@@ -108,7 +123,6 @@ export default class DashboardContainer extends Component {
                     handleProfilePost={this.handleProfilePost}
                     addToWatchList={this.props.addToWatchList}
                   />
-                  ;
                 </Segment>
               </Grid.Column>
               <Grid.Column width={6}>
@@ -117,6 +131,7 @@ export default class DashboardContainer extends Component {
                     valuationMetrics={this.state.valuationMetrics}
                     companyProfile={this.state.companyProfile}
                     displayCompanyDetailPage={this.displayCompanyDetailPage}
+                    clickedTicker={this.props.clickedTicker}
                   />
                 </Segment>
                 {/* <Message> */}
@@ -137,6 +152,7 @@ export default class DashboardContainer extends Component {
                     notes={this.state.notes}
                     togglePopup={this.togglePopup}
                     removeFromWatchList={this.props.removeFromWatchList}
+                    removeNoteFromNotes={this.removeNoteFromNotes}
                   />
                 </Segment>
               </Grid.Column>

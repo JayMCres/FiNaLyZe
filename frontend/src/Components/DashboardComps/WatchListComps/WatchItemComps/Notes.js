@@ -21,7 +21,7 @@ export default class Notes extends Component {
   };
 
   render() {
-    console.log("Notes State", this.state);
+    // console.log("Notes State", this.state);
     return (
       <List divided relaxed>
         {this.props.notes.map((note, index) => {
@@ -31,6 +31,7 @@ export default class Notes extends Component {
               {...note}
               renderClickedNote={this.renderClickedNote}
               clickedNote={this.state.clickedNote}
+              removeNoteFromNotes={this.props.removeNoteFromNotes}
             />
           );
         })}

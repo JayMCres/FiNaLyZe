@@ -50,7 +50,10 @@ export default class WatchItem extends Component {
             inverted
             style={{ overflow: "auto", maxHeight: 100 }}
           >
-            <Notes notes={foundNotes} />
+            <Notes
+              notes={foundNotes}
+              removeNoteFromNotes={this.props.removeNoteFromNotes}
+            />
           </Message>
         )}
       </Segment>

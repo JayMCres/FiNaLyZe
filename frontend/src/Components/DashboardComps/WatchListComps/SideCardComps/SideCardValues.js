@@ -1,7 +1,7 @@
 import React from "react";
 import { Segment, Message, Menu, Button, Table } from "semantic-ui-react";
 const SideCardHeader = props => {
-  console.log(" SideCardValues Props", props);
+  // console.log(" SideCardValues Props", props);
 
   return (
     <div>
@@ -37,11 +37,11 @@ const SideCardHeader = props => {
         </Menu>
       </Message>
 
-      <Segment attached>
+      {/* <Segment attached>
         <Button onClick={() => props.displayCompanyDetailPage()}>
           Company Page
         </Button>
-      </Segment>
+      </Segment> */}
     </div>
   );
 };
