@@ -10,6 +10,7 @@ import {
 import Companies from "./TickerListComps/Companies";
 import SideCardContainer from "./SideCardContainer";
 import WatchListContainer from "./WatchListComps/WatchList";
+import NotePopUp from "./NotesComps/NotePopUp";
 
 import CompanyDetails from "../CompanyComponents/CompanyDetails";
 
@@ -20,7 +21,9 @@ export default class DashboardContainer extends Component {
     post: "",
     response: "",
     companyDetailsPage: null,
-    notes: []
+    notes: [],
+    showPopup: false,
+    clickedFavorite: null
   };
 
   handleValueMetricPost = async () => {
@@ -57,6 +60,17 @@ export default class DashboardContainer extends Component {
 
   displayCompanyDetailPage = () => {
     this.setState({ companyDetailsPage: !this.state.companyDetailsPage });
+  };
+
+  togglePopup = itemId => {
+    const clickedFavorite = this.props.watchlist.find(
+      item => item.id === itemId
+    );
+    console.log("showing Favorite", clickedFavorite);
+    this.setState({
+      showPopup: !this.state.showPopup,
+      clickedFavorite: clickedFavorite
+    });
   };
 
   render() {
@@ -102,6 +116,7 @@ export default class DashboardContainer extends Component {
                   <WatchListContainer
                     watchlist={this.props.watchlist}
                     notes={this.state.notes}
+                    togglePopup={this.togglePopup}
                   />
                 </Segment>
               </Grid.Column>
@@ -110,6 +125,15 @@ export default class DashboardContainer extends Component {
         ) : (
           <CompanyDetails />
         )}
+        {this.state.showPopup ? (
+          <NotePopUp
+            text="Close Me"
+            user={this.props.currentUser}
+            closePopup={this.togglePopup}
+            clickedFavorite={this.state.clickedFavorite}
+            // addNewNoteToNotes={this.addNewNoteToNotes}
+          />
+        ) : null}
       </div>
     );
   }

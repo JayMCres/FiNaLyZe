@@ -12,7 +12,13 @@ export default class WatchList extends Component {
         <div>
           {this.props.watchlist.map(item => {
             console.log(item);
-            return <WatchItem {...item} notes={this.props.notes} />;
+            return (
+              <WatchItem
+                {...item}
+                notes={this.props.notes}
+                togglePopup={this.props.togglePopup}
+              />
+            );
           })}
         </div>
       );

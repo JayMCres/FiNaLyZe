@@ -8,12 +8,17 @@ export default class WatchListContainer extends Component {
     if (this.props.watchlist === undefined) {
       return "NO WATCH LIST";
     } else {
-      return <WatchList watchlist={[this.props.watchlist]} />;
+      return (
+        <WatchList
+          watchlist={[this.props.watchlist]}
+          togglePopup={this.props.togglePopup}
+        />
+      );
     }
   };
 
   render() {
-    console.log("WATCH", this.props.watchlist.length);
+    // console.log("WATCH", this.props.watchlist.length);
     return <div>{this.renderWatchList()}</div>;
     // return <WatchList />;
   }
