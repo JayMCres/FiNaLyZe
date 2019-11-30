@@ -9,6 +9,11 @@ const companyRatioController = require("../controllers/companyRatioController");
 const valueMetricsController = require("../controllers/valueMetricsController");
 const companyProfileController = require("../controllers/companyProfileController");
 const favoriteController = require("../controllers/favoriteController");
+const noteController = require("../controllers/noteController");
+
+const annualBSController = require("../controllers/annualBSController");
+const annualCFController = require("../controllers/annualCFController");
+const annualISController = require("../controllers/annualISController");
 
 routes.use("/api/users", usersController.listUsers);
 routes.use("/api/users/:id", usersController.getUser);
@@ -21,8 +26,18 @@ routes.use("/api/valuation", valueMetricsController.getValueMetrics);
 routes.use("/api/tickers", stockTickerController.getStockTickers);
 routes.use("/api/indexes", marketIndexController.getMarketIndexes);
 routes.use("/api/profile", companyProfileController.getCompanyProfile);
+
 routes.use("/api/user_favorite", favoriteController.addFavorite);
 routes.delete("/api/delete_favorite/:id", favoriteController.deleteFavorite);
 routes.get("/api/user_favorite/:id", favoriteController.getFavorite);
+
+routes.get("/api/notes/:id", noteController.getNote);
+routes.get("/api/notes", noteController.listNotes);
+routes.post("/api/user_note", noteController.addNote);
+routes.delete("/api/delete_note/:id", noteController.deleteNote);
+
+routes.use("api/annualbs", annualBSController.getAnnualBalanceSheet);
+routes.use("api/annualcf", annualCFController.getAnnualCashFlow);
+routes.use("api/annualis", annualISController.getAnnualIncome);
 
 module.exports = routes;

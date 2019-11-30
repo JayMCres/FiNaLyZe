@@ -7,6 +7,11 @@ const companyRatioController = require("./companyRatioController");
 const valueMetricsController = require("./valueMetricsController");
 const companyProfileController = require("./companyProfileController");
 const favoriteController = require("./favoriteController");
+const noteController = require("./noteontroller");
+
+const annualBSController = require("./annualBSController");
+const annualCFController = require("./annualCFController");
+const annualISController = require("./annualISController");
 
 module.exports = {
   usersController,
@@ -17,5 +22,9 @@ module.exports = {
   companyRatioController,
   valueMetricsController,
   companyProfileController,
-  favoriteController
+  favoriteController,
+  noteController,
+  annualBSController,
+  annualCFController,
+  annualISController
 };

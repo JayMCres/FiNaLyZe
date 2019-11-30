@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     "Note",
     {
       title: DataTypes.STRING,
-      content: DataTypes.STRING,
+      content: DataTypes.TEXT,
       favId: DataTypes.INTEGER,
       userId: DataTypes.INTEGER,
       favName: DataTypes.STRING,
@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Note.associate = function(models) {
     // associations can be defined here
-    Note.belongsTo(models.User);
+    // Note.belongsTo(models.User);
   };
   return Note;
 };

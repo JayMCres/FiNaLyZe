@@ -23,10 +23,6 @@ exports.getValueMetrics = async (req, res) => {
   });
 
   let valueMetricArray = await dataRes[0];
-  // console.log("response", newArray);
+  // console.log("valueMetricArray", valueMetricArray);
   res.send(valueMetricArray);
 };
-
-// module.exports = {
-//   getMetrics
-// };
