@@ -166,6 +166,7 @@ class HomePage extends Component {
                   companies={this.state.companies}
                   addToWatchList={this.addToWatchList}
                   watchlist={this.state.watchList}
+                  removeFromWatchList={this.removeFromWatchList}
                 />
               ) : null}
               {this.state.CompanyList ? (

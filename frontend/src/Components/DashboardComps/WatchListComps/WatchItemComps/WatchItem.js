@@ -1,9 +1,16 @@
 import React, { Component } from "react";
-import { Header, Button, Segment, Message, Icon } from "semantic-ui-react";
+import {
+  Header,
+  Button,
+  Segment,
+  Message,
+  Icon,
+  Label
+} from "semantic-ui-react";
 
 import Notes from "./Notes";
 
-export default class FoundNotes extends Component {
+export default class WatchItem extends Component {
   state = {
     currentNotes: [],
     WatchListNote: null
@@ -17,6 +24,12 @@ export default class FoundNotes extends Component {
     // console.log("found notes", foundNotes);
     return (
       <Segment inverted>
+        <Label as="a" corner="right" color="red">
+          <Icon
+            name="remove"
+            onClick={() => this.props.removeFromWatchList(this.props.id)}
+          />
+        </Label>
         <Message color="blue" attached="top">
           <Header as="h4">
             <Icon

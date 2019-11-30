@@ -13,6 +13,7 @@ export default class WatchListContainer extends Component {
           watchlist={[this.props.watchlist]}
           notes={this.props.notes}
           togglePopup={this.props.togglePopup}
+          removeFromWatchList={this.props.removeFromWatchList}
         />
       );
     }

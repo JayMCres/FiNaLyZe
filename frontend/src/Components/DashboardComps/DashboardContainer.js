@@ -91,6 +91,7 @@ export default class DashboardContainer extends Component {
       notes: [...this.state.notes, newNote]
     });
   };
+
   render() {
     // console.log("dashboard Props", this.state);
     return (
@@ -135,6 +136,7 @@ export default class DashboardContainer extends Component {
                     watchlist={this.props.watchlist}
                     notes={this.state.notes}
                     togglePopup={this.togglePopup}
+                    removeFromWatchList={this.props.removeFromWatchList}
                   />
                 </Segment>
               </Grid.Column>
