@@ -1,22 +1,22 @@
 const usersController = require("./usersController");
-const stockTickerController = require("./stockTickerController");
+const stockTickerController = require("./CompanyControllers/stockTickerController");
 const newsArticleController = require("./newsArticleController");
 const marketIndexController = require("./marketIndexController");
-const companyController = require("./companyController");
-const companyRatioController = require("./companyRatioController");
-const valueMetricsController = require("./valueMetricsController");
-const companyProfileController = require("./companyProfileController");
+const companyController = require("./CompanyControllers/companyController");
+const companyRatioController = require("./CompanyControllers/companyRatioController");
+const valueMetricsController = require("./CompanyControllers/valueMetricsController");
+const companyProfileController = require("./CompanyControllers/companyProfileController");
 const favoriteController = require("./favoriteController");
 const noteController = require("./noteontroller");
 
-const annualBSController = require("./annualBSController");
-const annualCFController = require("./annualCFController");
-const annualISController = require("./annualIncomeController");
-const summaryFinancialsController = require("./summaryFinancialsController");
+const annualBSController = require("./AnnualControllers/annualBSController");
+const annualCFController = require("./AnnualControllers/annualCFController");
+const annualISController = require("./AnnualControllers/annualIncomeController");
+const summaryFinancialsController = require("./AnnualControllers/summaryFinancialsController");
 
-const quaterlyBSController = require("./quaterlyBSController");
-const quaterlyISController = require("./quaterlyISController");
-const quaterlyCFController = require("./quaterlyCFController");
+const quaterlyBSController = require("./QuaterlyControllers/quaterlyBSController");
+const quaterlyISController = require("./QuaterlyControllers/quaterlyISController");
+const quaterlyCFController = require("./QuaterlyControllers/quaterlyCFController");
 
 module.exports = {
   usersController,

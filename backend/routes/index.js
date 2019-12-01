@@ -1,24 +1,24 @@
 const routes = require("express").Router();
 
 const usersController = require("../controllers/usersController");
-const stockTickerController = require("../controllers/stockTickerController");
+const stockTickerController = require("../controllers/CompanyControllers/stockTickerController");
 const newsArticleController = require("../controllers/newsArticleController");
 const marketIndexController = require("../controllers/marketIndexController");
-const companyController = require("../controllers/companyController");
-const companyRatioController = require("../controllers/companyRatioController");
-const valueMetricsController = require("../controllers/valueMetricsController");
-const companyProfileController = require("../controllers/companyProfileController");
+const companyController = require("../controllers/CompanyControllers/companyController");
+const companyRatioController = require("../controllers/CompanyControllers/companyRatioController");
+const valueMetricsController = require("../controllers/CompanyControllers/valueMetricsController");
+const companyProfileController = require("../controllers/CompanyControllers/companyProfileController");
 const favoriteController = require("../controllers/favoriteController");
 const noteController = require("../controllers/noteController");
 
-const annualBSController = require("../controllers/annualBSController");
-const annualCFController = require("../controllers/annualCFController");
-const annualISController = require("../controllers/annualIncomeController");
-const summaryFinancialsController = require("../controllers/summaryFinancialsController");
+const annualBSController = require("../controllers/AnnualControllers/annualBSController");
+const annualCFController = require("../controllers/AnnualControllers/annualCFController");
+const annualISController = require("../controllers/AnnualControllers/annualIncomeController");
+const summaryFinancialsController = require("../controllers/AnnualControllers/summaryFinancialsController");
 
-const quaterlyBSController = require("../controllers/quaterlyBSController");
-const quaterlyCFController = require("../controllers/quaterlyCFController");
-const quaterlyISController = require("../controllers/quaterlyISController");
+const quaterlyBSController = require("../controllers/QuaterlyControllers/quaterlyBSController");
+const quaterlyCFController = require("../controllers/QuaterlyControllers/quaterlyCFController");
+const quaterlyISController = require("../controllers/QuaterlyControllers/quaterlyISController");
 
 routes.use("/api/users", usersController.listUsers);
 routes.use("/api/users/:id", usersController.getUser);
@@ -47,7 +47,7 @@ routes.use("/api/annualincome", annualISController.getAnnualIncome);
 
 routes.use("/api/quaterlybs", quaterlyBSController.getQuaterlyBSData);
 routes.use("/api/quaterlycf", quaterlyCFController.getQuaterlyCFData);
-routes.use("/api/quaterlyincome", quaterlyISController.getQuaterlyISData);
+routes.use("/api/quaterlyis", quaterlyISController.getQuaterlyISData);
 
 routes.use(
   "/api/summaryfinancials",
