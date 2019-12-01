@@ -7,6 +7,7 @@ export default class DetailsContainer extends Component {
     annualISData: [],
     annualBSData: [],
     annualCFData: [],
+    summaryFinancials: [],
     post: "",
     response: ""
   };
@@ -14,6 +15,7 @@ export default class DetailsContainer extends Component {
   componentDidMount() {
     return this.fetchAllAnnualData();
   }
+
   fetchAnnualIS = async () => {
     const response = await fetch("http://localhost:5000/api/annualincome", {
       method: "POST",
@@ -60,17 +62,38 @@ export default class DetailsContainer extends Component {
     });
   };
 
+  fetchSummaryFinancials = async () => {
+    // e.preventDefault();
+    const response = await fetch(
+      "http://localhost:5000/api/summaryfinancials",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ post: this.props.clickedTicker.ticker })
+      }
+    );
+    const body = await response.json();
+    // console.log(body);
+    this.setState({
+      summaryFinancials: body
+    });
+  };
+
   fetchAllAnnualData = async () => {
+    await this.fetchSummaryFinancials();
     await this.fetchAnnualIS();
     await this.fetchAnnualCF();
     await this.fetchAnnualBS();
   };
 
   render() {
-    // console.log("Detial container Props", this.state);
+    console.log("Detial container State", this.state);
     return (
       <Segment inverted>
         <CompanyDetails
+          summaryFinancials={this.state.summaryFinancials}
           annualISData={this.state.annualISData}
           annualBSData={this.state.annualBSData}
           annualCFData={this.state.annualCFData}

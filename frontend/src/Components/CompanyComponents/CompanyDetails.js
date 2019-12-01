@@ -6,6 +6,7 @@ import DetailsProfile from "./CompanyDetails/CompanyProfile/DetailsProfile";
 export default class CompanyDetails extends Component {
   handleDetailsMenuRender = () => {
     if (
+      this.props.summaryFinancials.length === 0 ||
       this.props.annualISData.length === 0 ||
       this.props.annualCFData.length === 0 ||
       this.props.annualBSData.length === 0
@@ -18,6 +19,7 @@ export default class CompanyDetails extends Component {
     } else {
       return (
         <DetailsMenu
+          summaryFinancials={this.props.summaryFinancials}
           annualISData={this.props.annualISData}
           annualBSData={this.props.annualBSData}
           annualCFData={this.props.annualCFData}

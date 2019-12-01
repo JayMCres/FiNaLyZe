@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Menu, Table, Segment } from "semantic-ui-react";
 
-import SummaryList from "./SummaryList";
+import SummaryList from "./CompanyDetails/CompanyProfile/SummaryList";
 
 import AnnualISList from "./CompanyDetails/AnnualFinancials/IncomeStatement/AnnualISList";
 import AnnualBSList from "./CompanyDetails/AnnualFinancials/BalanceSheet/AnnualBSList";
@@ -47,7 +47,7 @@ export default class DetailsMenu extends Component {
   };
 
   renderSummaryComp = () => {
-    return <SummaryList />;
+    return <SummaryList summaryFinancials={this.props.summaryFinancials} />;
   };
 
   renderAnnualISComp = () => {

@@ -30,7 +30,7 @@ export default class DetailsProfile extends Component {
     }
   };
   render() {
-    console.log(" Details Profile Props", this.props);
+    // console.log(" Details Profile Props", this.props);
     return (
       <div>
         <Segment inverted>

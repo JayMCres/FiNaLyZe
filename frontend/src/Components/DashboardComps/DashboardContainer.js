@@ -24,9 +24,6 @@ export default class DashboardContainer extends Component {
     notes: [],
     showPopup: false,
     clickedFavorite: null
-    // annualISData: [],
-    // annualBSData: [],
-    // annualCFData: []
   };
 
   componentDidMount() {
