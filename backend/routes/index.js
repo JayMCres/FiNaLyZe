@@ -13,7 +13,12 @@ const noteController = require("../controllers/noteController");
 
 const annualBSController = require("../controllers/annualBSController");
 const annualCFController = require("../controllers/annualCFController");
-const annualISController = require("../controllers/annualISController");
+const annualISController = require("../controllers/annualIncomeController");
+const summaryFinancialsController = require("../controllers/summaryFinancialsController");
+
+const quaterlyBSController = require("../controllers/quaterlyBSController");
+const quaterlyCFController = require("../controllers/quaterlyCFController");
+const quaterlyISController = require("../controllers/quaterlyISController");
 
 routes.use("/api/users", usersController.listUsers);
 routes.use("/api/users/:id", usersController.getUser);
@@ -36,8 +41,17 @@ routes.get("/api/notes", noteController.listNotes);
 routes.post("/api/user_note", noteController.addNote);
 routes.delete("/api/delete_note/:id", noteController.deleteNote);
 
-routes.use("api/annualbs", annualBSController.getAnnualBalanceSheet);
-routes.use("api/annualcf", annualCFController.getAnnualCashFlow);
-routes.use("api/annualis", annualISController.getAnnualIncome);
+routes.use("/api/annualbs", annualBSController.getAnnualBalanceSheet);
+routes.use("/api/annualcf", annualCFController.getAnnualCashFlow);
+routes.use("/api/annualincome", annualISController.getAnnualIncome);
+
+routes.use("/api/quaterlybs", quaterlyBSController.getQuaterlyBSData);
+routes.use("/api/quaterlycf", quaterlyCFController.getQuaterlyCFData);
+routes.use("/api/quaterlyincome", quaterlyISController.getQuaterlyISData);
+
+routes.use(
+  "/api/summaryfinancials",
+  summaryFinancialsController.getSummaryFinancials
+);
 
 module.exports = routes;

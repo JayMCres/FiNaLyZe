@@ -11,7 +11,12 @@ const noteController = require("./noteontroller");
 
 const annualBSController = require("./annualBSController");
 const annualCFController = require("./annualCFController");
-const annualISController = require("./annualISController");
+const annualISController = require("./annualIncomeController");
+const summaryFinancialsController = require("./summaryFinancialsController");
+
+const quaterlyBSController = require("./quaterlyBSController");
+const quaterlyISController = require("./quaterlyISController");
+const quaterlyCFController = require("./quaterlyCFController");
 
 module.exports = {
   usersController,
@@ -26,5 +31,9 @@ module.exports = {
   noteController,
   annualBSController,
   annualCFController,
-  annualISController
+  annualISController,
+  summaryFinancialsController,
+  quaterlyBSController,
+  quaterlyISController,
+  quaterlyCFController
 };
