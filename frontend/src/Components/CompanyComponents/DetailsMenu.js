@@ -63,15 +63,36 @@ export default class DetailsMenu extends Component {
   };
 
   renderQuaterlyISComp = () => {
-    return <QuaterlyISList />;
+    return (
+      <QuaterlyISList
+        values={this.props.quaterlyISData.filter((item, index) => {
+          return index > 30;
+        })}
+        labels={Object.keys(this.props.quaterlyISData[0])}
+      />
+    );
   };
 
   renderQuaterlyBSComp = () => {
-    return <QuaterlyBSList />;
+    return (
+      <QuaterlyBSList
+        values={this.props.quaterlyBSData.filter((item, index) => {
+          return index > 30;
+        })}
+        labels={Object.keys(this.props.quaterlyBSData[0])}
+      />
+    );
   };
 
   renderQuaterlyCFComp = () => {
-    return <QuaterlyCFList />;
+    return (
+      <QuaterlyCFList
+        values={this.props.quaterlyCFData.filter((item, index) => {
+          return index > 30;
+        })}
+        labels={Object.keys(this.props.quaterlyCFData[0])}
+      />
+    );
   };
 
   render() {
