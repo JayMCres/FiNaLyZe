@@ -5,7 +5,8 @@ import {
   Message,
   Divider,
   Header,
-  Icon
+  Icon,
+  Label
 } from "semantic-ui-react";
 import Companies from "./TickerListComps/Companies";
 import SideCardContainer from "./WatchListComps/SideCardComps/SideCardContainer";
@@ -160,6 +161,12 @@ export default class DashboardContainer extends Component {
           </Segment>
         ) : (
           <Segment inverted>
+            <Label as="a" corner="right" color="red">
+              <Icon
+                name="remove"
+                onClick={() => this.displayCompanyDetailPage()}
+              />
+            </Label>
             <DetailsContainer
               clickedTicker={this.props.clickedTicker}
               companyProfile={[this.state.companyProfile]}

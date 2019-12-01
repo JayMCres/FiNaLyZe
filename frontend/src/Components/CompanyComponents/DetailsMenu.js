@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Menu, Table, Segment } from "semantic-ui-react";
 
 import SummaryList from "./CompanyDetails/CompanyProfile/SummaryList";
+import ModelPage from "./CompanyDetails/ValuationModel/ModelPage";
 
 import AnnualISList from "./CompanyDetails/AnnualFinancials/IncomeStatement/AnnualISList";
 import AnnualBSList from "./CompanyDetails/AnnualFinancials/BalanceSheet/AnnualBSList";
@@ -38,12 +39,16 @@ export default class DetailsMenu extends Component {
     }
     if (this.state.activeItem === "quaterlyCF") {
       return this.renderQuaterlyCFComp();
+    }
+    if (this.state.activeItem === "model") {
+      return this.renderModelPage();
     } else {
       return this.renderSummaryComp();
     }
-    // if (this.state.activeItem === "model") {
-    //   return this.renderModelPage();
-    // }
+  };
+
+  renderModelPage = () => {
+    return <ModelPage historicals={[this.props.historicals]} />;
   };
 
   renderSummaryComp = () => {

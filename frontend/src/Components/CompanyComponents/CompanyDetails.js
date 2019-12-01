@@ -7,7 +7,8 @@ export default class CompanyDetails extends Component {
   state = {
     quaterlyISData: [],
     quaterlyBSData: [],
-    quaterlyCFData: []
+    quaterlyCFData: [],
+    historicals: []
   };
 
   componentDidMount() {
@@ -18,7 +19,25 @@ export default class CompanyDetails extends Component {
     await this.fetchQuaterlyISData();
     await this.fetchQuaterlyBSData();
     await this.fetchQuaterlyCFData();
+    await this.fetchHistoricals();
   };
+
+  fetchHistoricals = async () => {
+    // e.preventDefault();
+    const response = await fetch("http://localhost:5000/api/historicals", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ post: this.props.clickedTicker.ticker })
+    });
+    const body = await response.json();
+    // console.log(body);
+    this.setState({
+      historicals: body
+    });
+  };
+
   fetchQuaterlyISData = async () => {
     // e.preventDefault();
     const response = await fetch("http://localhost:5000/api/quaterlyis", {
@@ -89,13 +108,14 @@ export default class CompanyDetails extends Component {
           quaterlyISData={this.state.quaterlyISData}
           quaterlyBSData={this.state.quaterlyBSData}
           quaterlyCFData={this.state.quaterlyCFData}
+          historicals={this.state.historicals}
         />
       );
     }
   };
 
   render() {
-    console.log("Company Details State", this.state);
+    // console.log("Company Details State", this.state);
     return (
       <Segment inverted>
         <DetailsProfile

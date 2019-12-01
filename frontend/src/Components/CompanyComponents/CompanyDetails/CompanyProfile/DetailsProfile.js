@@ -33,11 +33,6 @@ export default class DetailsProfile extends Component {
     // console.log(" Details Profile Props", this.props);
     return (
       <div>
-        <Segment inverted>
-          <Button onClick={this.props.closeDetails}>close me</Button>
-          <br />
-          <br />
-        </Segment>
         <Segment inverted attached>
           <Message color="blue">
             <h1>
