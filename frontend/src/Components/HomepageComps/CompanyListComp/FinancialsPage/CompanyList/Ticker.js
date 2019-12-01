@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table, Button, Icon } from "semantic-ui-react";
+import { Table } from "semantic-ui-react";
 
 export default class Ticker extends Component {
   compareClickHandler = async () => {

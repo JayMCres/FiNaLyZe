@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Divider, Grid, Message, Segment, Table } from "semantic-ui-react";
+import { Divider, Grid, Message, Table } from "semantic-ui-react";
 import QuaterlyBSItem from "./QuaterlyBSItem";
 
 class QuaterlyBSList extends Component {

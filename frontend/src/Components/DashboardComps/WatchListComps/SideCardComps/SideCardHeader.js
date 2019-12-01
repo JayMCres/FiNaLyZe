@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Menu,
-  Message,
-  Segment,
-  Table,
-  Header,
-  Image
-} from "semantic-ui-react";
+import { Message, Header, Image } from "semantic-ui-react";
 
 const SideCardHeader = props => {
   // console.log(" SideCardHeader Props", props);

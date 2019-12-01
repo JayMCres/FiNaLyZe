@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Segment, Button } from "semantic-ui-react";
+import { Form, Button } from "semantic-ui-react";
 
 class NoteForm extends Component {
   state = {

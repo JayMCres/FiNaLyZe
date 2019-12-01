@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Segment, Button } from "semantic-ui-react";
+import { Segment, Button } from "semantic-ui-react";
 
 import "./Popup.css";
 import NoteForm from "./NoteForm";

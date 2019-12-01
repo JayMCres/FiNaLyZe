@@ -17,18 +17,6 @@ export default class CompaniesContainer extends Component {
     clickedCompanyRatios: []
   };
 
-  // componentDidMount() {
-  //   fetch("http://localhost:5000/api/tickers")
-  //     .then(response => {
-  //       return response.json();
-  //     })
-  //     .then(companies => {
-  //       return this.setState({
-  //         companies: companies
-  //       });
-  //     });
-  // }
-
   handleCompanyFinancials = itemId => {
     const clickedCompany = this.props.companies.find(
       item => item.id === itemId

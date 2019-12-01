@@ -1,14 +1,11 @@
 import React from "react";
 import {
-  Table,
-  Dropdown,
   List,
   Message,
   Segment,
   Icon,
   Divider,
-  Header,
-  Grid
+  Header
 } from "semantic-ui-react";
 
 const CompanyRatio = props => {

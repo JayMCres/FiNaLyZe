@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Segment, Button, Grid, Summary, Message } from "semantic-ui-react";
+import { Segment, Grid, Message } from "semantic-ui-react";
 import ProfileCard from "./ProfileCard";
 import CompanyOverview from "./CompanyOverview";
 

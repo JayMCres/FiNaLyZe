@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { List, Modal, Message } from "semantic-ui-react";
+import { List } from "semantic-ui-react";
 import Note from "./Note";
 
 export default class Notes extends Component {

@@ -1,18 +1,6 @@
 import React, { Component } from "react";
 
-import {
-  Divider,
-  Grid,
-  Header,
-  Image,
-  Message,
-  Segment,
-  Responsive,
-  Table,
-  Container,
-  List,
-  Tab
-} from "semantic-ui-react";
+import { Segment } from "semantic-ui-react";
 import ModelContainer from "./ModelContainer";
 import ModelAssumptions from "./ModelAssumptions";
 

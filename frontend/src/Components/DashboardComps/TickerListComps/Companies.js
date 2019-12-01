@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Button, Card, Image, Segment } from "semantic-ui-react";
+import { Card, Segment } from "semantic-ui-react";
 import CompanyCard from "./CompanyCard";
 // import CompanyHeader from "./CompanyHeader";
 

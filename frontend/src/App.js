@@ -140,6 +140,7 @@ export default class App extends Component {
         </style>
         <Segment inverted>
           {/* <div className="ui raised segment"> */}
+
           <div className="ui segment violet inverted">
             <Header color={"violet"} inverted as="h1">
               Fin-Analyze Dashboard

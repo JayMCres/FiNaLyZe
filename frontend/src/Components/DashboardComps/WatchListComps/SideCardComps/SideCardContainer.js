@@ -40,17 +40,21 @@ export default class SideCardContainer extends Component {
                 })}
               </Segment>
               {this.props.valuationMetrics.length !== 0 ? (
-                <Segment attached="Bottom">
-                  {[this.props.valuationMetrics].map(item => {
-                    return <SideCardValues {...item} />;
-                  })}
-                  <SideCardButton
-                    displayCompanyDetailPage={
-                      this.props.displayCompanyDetailPage
-                    }
-                    // fetchAnnualIS={this.props.fetchAnnualIS}
-                  />
-                </Segment>
+                <div>
+                  <Segment attached="middle">
+                    {[this.props.valuationMetrics].map(item => {
+                      return <SideCardValues {...item} />;
+                    })}
+                  </Segment>
+                  <Segment attached="bottom">
+                    <SideCardButton
+                      displayCompanyDetailPage={
+                        this.props.displayCompanyDetailPage
+                      }
+                      // fetchAnnualIS={this.props.fetchAnnualIS}
+                    />
+                  </Segment>
+                </div>
               ) : null}
             </div>
           )}

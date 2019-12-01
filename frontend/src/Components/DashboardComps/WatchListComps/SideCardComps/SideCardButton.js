@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Message, Segment } from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
 
 class SideCardButton extends Component {
   handleFetchAllCompanyDetails = async () => {

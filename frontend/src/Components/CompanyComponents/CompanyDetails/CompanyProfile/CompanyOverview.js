@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Table, Segment, Header, Message } from "semantic-ui-react";
 
 const CompanyOverview = props => {

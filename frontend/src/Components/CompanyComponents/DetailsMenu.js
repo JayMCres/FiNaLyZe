@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Menu, Table, Segment } from "semantic-ui-react";
+import { Menu, Segment, Message } from "semantic-ui-react";
 
 import SummaryList from "./CompanyDetails/CompanyProfile/SummaryList";
 import ModelPage from "./CompanyDetails/ValuationModel/ModelPage";
@@ -68,41 +68,65 @@ export default class DetailsMenu extends Component {
   };
 
   renderQuaterlyISComp = () => {
-    return (
-      <QuaterlyISList
-        values={this.props.quaterlyISData.filter((item, index) => {
-          return index > 30;
-        })}
-        labels={Object.keys(this.props.quaterlyISData[0])}
-      />
-    );
+    if (this.props.quaterlyISData.length === 0) {
+      return (
+        <Segment>
+          <Message>Not Avaliable</Message>
+        </Segment>
+      );
+    } else {
+      return (
+        <QuaterlyISList
+          values={this.props.quaterlyISData.filter((item, index) => {
+            return index > 30;
+          })}
+          labels={Object.keys(this.props.quaterlyISData[0])}
+        />
+      );
+    }
   };
 
   renderQuaterlyBSComp = () => {
-    return (
-      <QuaterlyBSList
-        values={this.props.quaterlyBSData.filter((item, index) => {
-          return index > 30;
-        })}
-        labels={Object.keys(this.props.quaterlyBSData[0])}
-      />
-    );
+    if (this.props.quaterlyBSData.length === 0) {
+      return (
+        <Segment>
+          <Message>Not Avaliable</Message>
+        </Segment>
+      );
+    } else {
+      return (
+        <QuaterlyBSList
+          values={this.props.quaterlyBSData.filter((item, index) => {
+            return index > 30;
+          })}
+          labels={Object.keys(this.props.quaterlyBSData[0])}
+        />
+      );
+    }
   };
 
   renderQuaterlyCFComp = () => {
-    return (
-      <QuaterlyCFList
-        values={this.props.quaterlyCFData.filter((item, index) => {
-          return index > 30;
-        })}
-        labels={Object.keys(this.props.quaterlyCFData[0])}
-      />
-    );
+    if (this.props.quaterlyCFData.length === 0) {
+      return (
+        <Segment>
+          <Message>Not Avaliable</Message>
+        </Segment>
+      );
+    } else {
+      return (
+        <QuaterlyCFList
+          values={this.props.quaterlyCFData.filter((item, index) => {
+            return index > 30;
+          })}
+          labels={Object.keys(this.props.quaterlyCFData[0])}
+        />
+      );
+    }
   };
 
   render() {
     // const { activeItem } = this.state;
-    // console.log("Active Item", activeItem);
+    console.log("Menu Props", this.props);
     return (
       <Segment inverted>
         <Menu>

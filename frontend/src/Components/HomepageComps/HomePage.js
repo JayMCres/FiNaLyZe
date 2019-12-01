@@ -124,9 +124,9 @@ class HomePage extends Component {
     // console.log("Homepage State", this.state);
     return (
       <Segment inverted>
-        <Segment inverted>
-          <Message info></Message>
-        </Segment>
+        {/* <Segment inverted> */}
+        <Message info></Message>
+
         <Segment inverted>
           <MarketAnalysisContainer />
         </Segment>

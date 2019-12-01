@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Linkify from "react-linkify";
+// import Linkify from "react-linkify";
 
-import { Button, Card, Image, Message } from "semantic-ui-react";
+import { Button, Card } from "semantic-ui-react";
 
 export default class CompanyCard extends Component {
   dashboardInfoHandler = async () => {

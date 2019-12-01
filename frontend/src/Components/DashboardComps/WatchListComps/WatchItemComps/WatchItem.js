@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import {
-  Header,
-  Button,
-  Segment,
-  Message,
-  Icon,
-  Label
-} from "semantic-ui-react";
+import { Header, Segment, Message, Icon, Label } from "semantic-ui-react";
 
 import Notes from "./Notes";
 

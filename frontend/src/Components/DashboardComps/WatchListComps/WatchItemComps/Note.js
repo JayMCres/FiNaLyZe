@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { List, Button, Header, Icon, Image, Modal } from "semantic-ui-react";
+import { List, Button, Icon, Modal } from "semantic-ui-react";
 
 export default class Note extends Component {
   render() {

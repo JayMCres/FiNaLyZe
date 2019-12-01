@@ -1,13 +1,5 @@
 import React, { Component } from "react";
-import {
-  Segment,
-  Grid,
-  Message,
-  Divider,
-  Header,
-  Icon,
-  Label
-} from "semantic-ui-react";
+import { Segment, Grid, Divider, Header, Icon, Label } from "semantic-ui-react";
 import Companies from "./TickerListComps/Companies";
 import SideCardContainer from "./WatchListComps/SideCardComps/SideCardContainer";
 import WatchListContainer from "./WatchListComps/WatchList";

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import NewsItem from "./NewsItem";
-import { Table, Segment } from "semantic-ui-react";
+import { Segment } from "semantic-ui-react";
 
 export default class NewsContainer extends Component {
   state = {

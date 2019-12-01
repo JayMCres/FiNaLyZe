@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table, Segment } from "semantic-ui-react";
+import { Table } from "semantic-ui-react";
 import Ticker from "./Ticker";
 // import TickerListHeader from "./TickerListHeader";
 

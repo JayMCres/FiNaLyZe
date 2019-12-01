@@ -1,5 +1,5 @@
 import React from "react";
-import { Segment, Message, Menu, Button, Table } from "semantic-ui-react";
+import { Message, Menu, Table } from "semantic-ui-react";
 const SideCardHeader = props => {
   // console.log(" SideCardValues Props", props);
 
