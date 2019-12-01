@@ -67,7 +67,7 @@ export default class DetailsContainer extends Component {
   };
 
   render() {
-    console.log("Detial container Props", this.state);
+    // console.log("Detial container Props", this.state);
     return (
       <Segment inverted>
         <CompanyDetails
@@ -75,6 +75,7 @@ export default class DetailsContainer extends Component {
           annualBSData={this.state.annualBSData}
           annualCFData={this.state.annualCFData}
           clickedTicker={this.props.clickedTicker}
+          companyProfile={this.props.companyProfile}
         />
       </Segment>
     );

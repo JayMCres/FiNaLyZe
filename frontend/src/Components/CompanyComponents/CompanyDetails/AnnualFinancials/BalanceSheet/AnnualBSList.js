@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Segment, Table, Message } from "semantic-ui-react";
 import AnnualHeader from "../AnnualHeader";
-
+import AnnualBSItem from "./AnnualBSItem";
 export default class AnnualBSList extends Component {
   render() {
     return (
@@ -15,7 +15,11 @@ export default class AnnualBSList extends Component {
             </Table.Row>
             <AnnualHeader />
           </Table.Header>
-          <Table.Body>Test</Table.Body>
+          <Table.Body>
+            {this.props.annualBSData.map((isItem, index) => {
+              return <AnnualBSItem key={index} {...isItem} />;
+            })}
+          </Table.Body>
         </Table>
       </Segment>
     );

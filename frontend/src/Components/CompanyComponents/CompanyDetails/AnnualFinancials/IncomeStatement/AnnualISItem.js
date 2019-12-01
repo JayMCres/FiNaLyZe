@@ -1,7 +1,7 @@
 import React from "react";
 import { Table } from "semantic-ui-react";
 
-const ISItem = props => {
+const AnnualISItem = props => {
   return (
     <Table.Row>
       <Table.Cell style={{ color: "blue" }}>
@@ -41,4 +41,4 @@ const ISItem = props => {
   );
 };
 
-export default ISItem;
+export default AnnualISItem;

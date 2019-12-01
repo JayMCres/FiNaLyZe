@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Segment, Table, Message } from "semantic-ui-react";
 import AnnualHeader from "../AnnualHeader";
+import AnnualCFItem from "./AnnualCFItem";
 
 export default class AnnualCFList extends Component {
   render() {
@@ -15,7 +16,11 @@ export default class AnnualCFList extends Component {
             </Table.Row>
             <AnnualHeader />
           </Table.Header>
-          <Table.Body>Test</Table.Body>
+          <Table.Body>
+            {this.props.annualCFData.map((isItem, index) => {
+              return <AnnualCFItem key={index} {...isItem} />;
+            })}
+          </Table.Body>
         </Table>
       </Segment>
     );

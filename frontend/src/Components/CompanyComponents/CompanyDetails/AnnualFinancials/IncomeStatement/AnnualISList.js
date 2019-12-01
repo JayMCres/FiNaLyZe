@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Segment, Table, Message } from "semantic-ui-react";
 import AnnualHeader from "../AnnualHeader";
-import ISItem from "./ISItem";
+import AnnualISItem from "./AnnualISItem";
 
 export default class AnnualISList extends Component {
   render() {
@@ -19,7 +19,7 @@ export default class AnnualISList extends Component {
           </Table.Header>
           <Table.Body>
             {this.props.annualISData.map((isItem, index) => {
-              return <ISItem key={index} {...isItem} />;
+              return <AnnualISItem key={index} {...isItem} />;
             })}
           </Table.Body>
         </Table>

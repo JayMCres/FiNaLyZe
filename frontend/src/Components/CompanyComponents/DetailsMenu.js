@@ -55,11 +55,11 @@ export default class DetailsMenu extends Component {
   };
 
   renderAnnualBSComp = () => {
-    return <AnnualBSList />;
+    return <AnnualBSList annualBSData={this.props.annualBSData} />;
   };
 
   renderAnnualCFComp = () => {
-    return <AnnualCFList />;
+    return <AnnualCFList annualCFData={this.props.annualCFData} />;
   };
 
   renderQuaterlyISComp = () => {

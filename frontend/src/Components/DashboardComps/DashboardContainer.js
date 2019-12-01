@@ -42,21 +42,6 @@ export default class DashboardContainer extends Component {
       });
   }
 
-  // fetchAnnualIS = async () => {
-  //   const response = await fetch("http://localhost:5000/api/annualincome", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify({ post: this.props.clickedTicker.ticker })
-  //   });
-  //   const body = await response.json();
-  //   console.log(body);
-  //   this.setState({
-  //     annualISData: body[0]
-  //   });
-  // };
-
   handleValueMetricPost = async () => {
     const response = await fetch("http://localhost:5000/api/valuation", {
       method: "POST",
@@ -126,7 +111,7 @@ export default class DashboardContainer extends Component {
   };
 
   render() {
-    console.log("dashboard Props", this.state);
+    // console.log("dashboard State", this.state);
     return (
       <div>
         {!this.state.companyDetailsPage ? (
@@ -146,7 +131,6 @@ export default class DashboardContainer extends Component {
               <Grid.Column width={6}>
                 <Segment inverted>
                   <SideCardContainer
-                    // fetchAnnualIS={this.fetchAnnualIS}
                     valuationMetrics={this.state.valuationMetrics}
                     companyProfile={this.state.companyProfile}
                     displayCompanyDetailPage={this.displayCompanyDetailPage}
@@ -178,7 +162,12 @@ export default class DashboardContainer extends Component {
             </Grid>
           </Segment>
         ) : (
-          <DetailsContainer clickedTicker={this.props.clickedTicker} />
+          <Segment inverted>
+            <DetailsContainer
+              clickedTicker={this.props.clickedTicker}
+              companyProfile={[this.state.companyProfile]}
+            />
+          </Segment>
         )}
         {this.state.showPopup ? (
           <NotePopUp

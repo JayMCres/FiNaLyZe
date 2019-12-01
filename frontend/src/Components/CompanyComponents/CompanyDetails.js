@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Segment, Image } from "semantic-ui-react";
 import DetailsMenu from "./DetailsMenu";
-import DetailsProfile from "./DetailsProfile";
+import DetailsProfile from "./CompanyDetails/CompanyProfile/DetailsProfile";
 
 export default class CompanyDetails extends Component {
   handleDetailsMenuRender = () => {
@@ -27,12 +27,14 @@ export default class CompanyDetails extends Component {
   };
 
   render() {
-    console.log("Company Details Props", this.props);
+    // console.log("Company Details Props", this.props);
     return (
       <Segment inverted>
-        <DetailsProfile />
+        <DetailsProfile
+          clickedTicker={this.props.clickedTicker}
+          companyProfile={this.props.companyProfile}
+        />
         {this.handleDetailsMenuRender()}
-        {/* <DetailsMenu /> */}
       </Segment>
     );
   }
