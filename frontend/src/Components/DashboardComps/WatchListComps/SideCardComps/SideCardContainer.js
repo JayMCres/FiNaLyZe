@@ -8,7 +8,7 @@ import SideCardButton from "./SideCardButton";
 
 export default class SideCardContainer extends Component {
   render() {
-    console.log("Sidecard Data", this.props);
+    // console.log("Sidecard Data", this.props);
     if (
       this.props.companyProfile.length === 0 &&
       this.props.clickedTicker === null
@@ -48,6 +48,7 @@ export default class SideCardContainer extends Component {
                     displayCompanyDetailPage={
                       this.props.displayCompanyDetailPage
                     }
+                    // fetchAnnualIS={this.props.fetchAnnualIS}
                   />
                 </Segment>
               ) : null}

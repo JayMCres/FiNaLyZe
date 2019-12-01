@@ -7,9 +7,9 @@ import AnnualISList from "./CompanyDetails/AnnualFinancials/IncomeStatement/Annu
 import AnnualBSList from "./CompanyDetails/AnnualFinancials/BalanceSheet/AnnualBSList";
 import AnnualCFList from "./CompanyDetails/AnnualFinancials/CashFlow/AnnualCFList";
 
-import QuaterlyISList from "./CompanyDetails/QuaterlyFinancials/QuaterlyISList";
-import QuaterlyBSList from "./CompanyDetails/QuaterlyFinancials/QuaterlyBSList";
-import QuaterlyCFList from "./CompanyDetails/QuaterlyFinancials/QuaterlyCFList";
+import QuaterlyISList from "./CompanyDetails/QuaterlyFinancials/IncomeStatement/QuaterlyISList";
+import QuaterlyBSList from "./CompanyDetails/QuaterlyFinancials/BalanceSheet/QuaterlyBSList";
+import QuaterlyCFList from "./CompanyDetails/QuaterlyFinancials/CashFlow/QuaterlyCFList";
 
 export default class DetailsMenu extends Component {
   state = {
@@ -51,7 +51,7 @@ export default class DetailsMenu extends Component {
   };
 
   renderAnnualISComp = () => {
-    return <AnnualISList />;
+    return <AnnualISList annualISData={this.props.annualISData} />;
   };
 
   renderAnnualBSComp = () => {

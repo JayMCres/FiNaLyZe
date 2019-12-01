@@ -1,14 +1,18 @@
-import React from "react";
+import React, { Component } from "react";
 import { Button, Message, Segment } from "semantic-ui-react";
 
-const SideCardButton = props => {
+class SideCardButton extends Component {
+  handleFetchAllCompanyDetails = async () => {
+    await this.props.fetchAnnualIS();
+    await this.props.displayCompanyDetailPage();
+  };
   // console.log(" SideCardHeader Props", props);
-
-  return (
-    <Button onClick={() => props.displayCompanyDetailPage()}>
-      Company Page
-    </Button>
-  );
-};
-
+  render() {
+    return (
+      <Button onClick={() => this.props.displayCompanyDetailPage()}>
+        Company Page
+      </Button>
+    );
+  }
+}
 export default SideCardButton;

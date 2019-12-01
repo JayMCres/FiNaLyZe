@@ -12,7 +12,7 @@ import SideCardContainer from "./WatchListComps/SideCardComps/SideCardContainer"
 import WatchListContainer from "./WatchListComps/WatchList";
 import NotePopUp from "./WatchListComps/NoteComps/NotePopUp";
 
-import CompanyDetails from "../CompanyComponents/DetailsContainer";
+import DetailsContainer from "../CompanyComponents/DetailsContainer";
 
 export default class DashboardContainer extends Component {
   state = {
@@ -24,6 +24,9 @@ export default class DashboardContainer extends Component {
     notes: [],
     showPopup: false,
     clickedFavorite: null
+    // annualISData: [],
+    // annualBSData: [],
+    // annualCFData: []
   };
 
   componentDidMount() {
@@ -38,6 +41,21 @@ export default class DashboardContainer extends Component {
         return this.setState({ notes: userNotes });
       });
   }
+
+  // fetchAnnualIS = async () => {
+  //   const response = await fetch("http://localhost:5000/api/annualincome", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify({ post: this.props.clickedTicker.ticker })
+  //   });
+  //   const body = await response.json();
+  //   console.log(body);
+  //   this.setState({
+  //     annualISData: body[0]
+  //   });
+  // };
 
   handleValueMetricPost = async () => {
     const response = await fetch("http://localhost:5000/api/valuation", {
@@ -128,6 +146,7 @@ export default class DashboardContainer extends Component {
               <Grid.Column width={6}>
                 <Segment inverted>
                   <SideCardContainer
+                    // fetchAnnualIS={this.fetchAnnualIS}
                     valuationMetrics={this.state.valuationMetrics}
                     companyProfile={this.state.companyProfile}
                     displayCompanyDetailPage={this.displayCompanyDetailPage}
@@ -159,7 +178,7 @@ export default class DashboardContainer extends Component {
             </Grid>
           </Segment>
         ) : (
-          <CompanyDetails />
+          <DetailsContainer clickedTicker={this.props.clickedTicker} />
         )}
         {this.state.showPopup ? (
           <NotePopUp
