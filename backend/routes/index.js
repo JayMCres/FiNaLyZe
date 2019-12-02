@@ -8,12 +8,14 @@ const companyController = require("../controllers/CompanyControllers/companyCont
 const companyRatioController = require("../controllers/CompanyControllers/companyRatioController");
 const valueMetricsController = require("../controllers/CompanyControllers/valueMetricsController");
 const companyProfileController = require("../controllers/CompanyControllers/companyProfileController");
+
+const valuationModelController = require("../controllers/CompanyControllers/valuationModelController");
 const favoriteController = require("../controllers/favoriteController");
 const noteController = require("../controllers/noteController");
 
 const annualBSController = require("../controllers/AnnualControllers/annualBSController");
 const annualCFController = require("../controllers/AnnualControllers/annualCFController");
-const annualISController = require("../controllers/AnnualControllers/annualIncomeController");
+const annualISController = require("../controllers/AnnualControllers/annualISController");
 const summaryFinancialsController = require("../controllers/AnnualControllers/summaryFinancialsController");
 
 const quaterlyBSController = require("../controllers/QuaterlyControllers/quaterlyBSController");
@@ -48,7 +50,7 @@ routes.use("/api/annualincome", annualISController.getAnnualIncome);
 routes.use("/api/quaterlybs", quaterlyBSController.getQuaterlyBSData);
 routes.use("/api/quaterlycf", quaterlyCFController.getQuaterlyCFData);
 routes.use("/api/quaterlyis", quaterlyISController.getQuaterlyISData);
-
+routes.use("/api/historicals", valuationModelController.getModelHistoricalData);
 routes.use(
   "/api/summaryfinancials",
   summaryFinancialsController.getSummaryFinancials

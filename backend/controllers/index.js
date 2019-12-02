@@ -5,13 +5,14 @@ const marketIndexController = require("./marketIndexController");
 const companyController = require("./CompanyControllers/companyController");
 const companyRatioController = require("./CompanyControllers/companyRatioController");
 const valueMetricsController = require("./CompanyControllers/valueMetricsController");
+const valuationModelController = require("./CompanyControllers/ valuationModelController");
 const companyProfileController = require("./CompanyControllers/companyProfileController");
 const favoriteController = require("./favoriteController");
 const noteController = require("./noteontroller");
 
 const annualBSController = require("./AnnualControllers/annualBSController");
 const annualCFController = require("./AnnualControllers/annualCFController");
-const annualISController = require("./AnnualControllers/annualIncomeController");
+const annualISController = require("./AnnualControllers/annualISController");
 const summaryFinancialsController = require("./AnnualControllers/summaryFinancialsController");
 
 const quaterlyBSController = require("./QuaterlyControllers/quaterlyBSController");
@@ -35,5 +36,6 @@ module.exports = {
   summaryFinancialsController,
   quaterlyBSController,
   quaterlyISController,
-  quaterlyCFController
+  quaterlyCFController,
+  valuationModelController
 };
