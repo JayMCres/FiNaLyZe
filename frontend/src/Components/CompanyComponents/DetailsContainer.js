@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Segment } from "semantic-ui-react";
 import CompanyDetails from "./CompanyDetails";
+import NotesContainer from "./NotesContainer";
 
 export default class DetailsContainer extends Component {
   state = {
@@ -89,18 +90,30 @@ export default class DetailsContainer extends Component {
   };
 
   render() {
-    console.log("Detial container State", this.state);
+    // console.log("Detial container Props", this.props);
+
     return (
-      <Segment inverted>
-        <CompanyDetails
-          summaryFinancials={this.state.summaryFinancials}
-          annualISData={this.state.annualISData}
-          annualBSData={this.state.annualBSData}
-          annualCFData={this.state.annualCFData}
-          clickedTicker={this.props.clickedTicker}
-          companyProfile={this.props.companyProfile}
-        />
-      </Segment>
+      <div>
+        <Segment inverted attached="top">
+          <CompanyDetails
+            summaryFinancials={this.state.summaryFinancials}
+            annualISData={this.state.annualISData}
+            annualBSData={this.state.annualBSData}
+            annualCFData={this.state.annualCFData}
+            clickedTicker={this.props.clickedTicker}
+            companyProfile={this.props.companyProfile}
+          />
+        </Segment>
+        <Segment inverted attached="bottom">
+          <NotesContainer
+            notes={this.props.notes.filter(note => {
+              return note.favTicker === this.props.clickedTicker.ticker;
+            })}
+            removeNoteFromNotes={this.props.removeNoteFromNotes}
+            displayNoteUpdate={this.props.displayNoteUpdate}
+          />
+        </Segment>
+      </div>
     );
   }
 }

@@ -93,6 +93,7 @@ export default class DashboardContainer extends Component {
   displayCompanyDetailPage = () => {
     this.setState({ companyDetailsPage: !this.state.companyDetailsPage });
   };
+
   displayNoteUpdate = () => {
     return this.setState({
       showUpdatePopup: !this.state.showUpdatePopup
@@ -198,6 +199,9 @@ export default class DashboardContainer extends Component {
             <DetailsContainer
               clickedTicker={this.props.clickedTicker}
               companyProfile={[this.state.companyProfile]}
+              notes={this.state.notes}
+              removeNoteFromNotes={this.removeNoteFromNotes}
+              displayNoteUpdate={this.displayNoteUpdate}
             />
           </Segment>
         )}

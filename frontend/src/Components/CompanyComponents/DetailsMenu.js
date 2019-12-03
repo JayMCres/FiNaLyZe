@@ -126,7 +126,7 @@ export default class DetailsMenu extends Component {
 
   render() {
     // const { activeItem } = this.state;
-    console.log("Menu Props", this.props);
+    // console.log("Menu Props", this.props);
     return (
       <Segment inverted>
         <Menu>
