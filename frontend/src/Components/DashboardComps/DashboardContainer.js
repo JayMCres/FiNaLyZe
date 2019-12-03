@@ -3,8 +3,8 @@ import { Segment, Grid, Divider, Header, Icon, Label } from "semantic-ui-react";
 import Companies from "./TickerListComps/Companies";
 import SideCardContainer from "./WatchListComps/SideCardComps/SideCardContainer";
 import WatchListContainer from "./WatchListComps/WatchList";
-import NotePopUp from "./WatchListComps/WatchItemComps/NotePopUp";
-
+import NotePopUp from "./WatchListComps/NoteComps/NotePopUp";
+import UpdatePopUp from "./WatchListComps/NoteComps/UpdatePopUp";
 import DetailsContainer from "../CompanyComponents/DetailsContainer";
 
 export default class DashboardContainer extends Component {
@@ -16,10 +16,26 @@ export default class DashboardContainer extends Component {
     companyDetailsPage: null,
     notes: [],
     showPopup: false,
-    clickedFavorite: null
+    showUpdatePopup: false,
+    clickedFavorite: null,
+    clickedNote: []
   };
 
   componentDidMount() {
+    // fetch("http://localhost:5000/api/notes")
+    //   .then(response => {
+    //     return response.json();
+    //   })
+    //   .then(notes => {
+    //     const userNotes = notes.filter(note => {
+    //       return note.userId === this.props.currentUser.id;
+    //     });
+    //     return this.setState({ notes: userNotes });
+    //   });
+    return this.handleNoteFetch();
+  }
+
+  handleNoteFetch = () => {
     fetch("http://localhost:5000/api/notes")
       .then(response => {
         return response.json();
@@ -30,7 +46,19 @@ export default class DashboardContainer extends Component {
         });
         return this.setState({ notes: userNotes });
       });
-  }
+  };
+
+  renderClickedNote = noteId => {
+    const clickedNote = this.state.notes.find(note => {
+      return note.id === noteId;
+    });
+    console.log("showing", clickedNote);
+    return this.setState({
+      clickedNote: clickedNote
+
+      // watchNote: !this.state.watchNote
+    });
+  };
 
   handleValueMetricPost = async () => {
     const response = await fetch("http://localhost:5000/api/valuation", {
@@ -65,7 +93,11 @@ export default class DashboardContainer extends Component {
   displayCompanyDetailPage = () => {
     this.setState({ companyDetailsPage: !this.state.companyDetailsPage });
   };
-
+  displayNoteUpdate = () => {
+    return this.setState({
+      showUpdatePopup: !this.state.showUpdatePopup
+    });
+  };
   togglePopup = itemId => {
     const clickedFavorite = this.props.watchlist.find(
       item => item.id === itemId
@@ -146,6 +178,10 @@ export default class DashboardContainer extends Component {
                     togglePopup={this.togglePopup}
                     removeFromWatchList={this.props.removeFromWatchList}
                     removeNoteFromNotes={this.removeNoteFromNotes}
+                    displayNoteUpdate={this.displayNoteUpdate}
+                    handleNoteFetch={this.handleNoteFetch}
+                    renderClickedNote={this.renderClickedNote}
+                    clickedNote={this.state.clickedNote}
                   />
                 </Segment>
               </Grid.Column>
@@ -172,6 +208,15 @@ export default class DashboardContainer extends Component {
             closePopup={this.togglePopup}
             clickedFavorite={this.state.clickedFavorite}
             addNewNoteToNotes={this.addNewNoteToNotes}
+          />
+        ) : null}
+        {this.state.showUpdatePopup ? (
+          <UpdatePopUp
+            displayNoteUpdate={this.displayNoteUpdate}
+            clickedNote={this.state.clickedNote}
+            user={this.props.user}
+            clickedFavorite={this.props.clickedFavorite}
+            handleNoteFetch={this.handleNoteFetch}
           />
         ) : null}
       </div>

@@ -3,6 +3,7 @@ import { Segment, Button } from "semantic-ui-react";
 
 import "./Popup.css";
 import NoteForm from "./NoteForm";
+// import UpdateForm from "./UpdateForm";
 
 class NotePopUp extends Component {
   render() {
@@ -19,12 +20,20 @@ class NotePopUp extends Component {
                 </Button>
                 <br />
                 <br />
-
                 <NoteForm
                   user={this.props.user}
                   addNewNoteToNotes={this.props.addNewNoteToNotes}
                   clickedFavorite={this.props.clickedFavorite}
                 />
+                {/* {this.props.showUpdatePopup === true ? (
+                  <UpdateForm
+                    user={this.props.user}
+                    clickedFavorite={this.props.clickedFavorite}
+                    clickedNote={this.props.clickedNote}
+                    displayNoteUpdate={this.props.displayNoteUpdate}
+                  />
+                ) : null} */}
+                {/* )} */}
               </Segment>
             </div>
           </div>

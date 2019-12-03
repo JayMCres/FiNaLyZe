@@ -15,6 +15,7 @@ export default class WatchItem extends Component {
       return note.favTicker === this.props.ticker;
     });
     // console.log("found notes", foundNotes);
+
     return (
       <Segment inverted>
         <Label as="a" corner="right" color="red">
@@ -46,6 +47,10 @@ export default class WatchItem extends Component {
             <Notes
               notes={foundNotes}
               removeNoteFromNotes={this.props.removeNoteFromNotes}
+              handleNoteFetch={this.props.handleNoteFetch}
+              displayNoteUpdate={this.props.displayNoteUpdate}
+              renderClickedNote={this.props.renderClickedNote}
+              clickedNote={this.props.clickedNote}
             />
           </Message>
         )}

@@ -25,6 +25,7 @@ class UpdatePopUp extends Component {
                   clickedFavorite={this.props.clickedFavorite}
                   clickedNote={this.props.clickedNote}
                   displayNoteUpdate={this.props.displayNoteUpdate}
+                  handleNoteFetch={this.props.handleNoteFetch}
                 />
               </Segment>
             </div>

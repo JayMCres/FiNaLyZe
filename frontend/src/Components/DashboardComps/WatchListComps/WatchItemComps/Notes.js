@@ -4,21 +4,21 @@ import Note from "./Note";
 
 export default class Notes extends Component {
   state = {
-    watchNote: null,
-    clickedNote: []
+    watchNote: null
+    // clickedNote: []
   };
 
-  renderClickedNote = noteId => {
-    const clickedNote = this.props.notes.find(note => {
-      return note.id === noteId;
-    });
-    console.log("showing", clickedNote);
-    return this.setState({
-      clickedNote: clickedNote
+  // renderClickedNote = noteId => {
+  //   const clickedNote = this.props.notes.find(note => {
+  //     return note.id === noteId;
+  //   });
+  //   console.log("showing", clickedNote);
+  //   return this.setState({
+  //     clickedNote: clickedNote
 
-      // watchNote: !this.state.watchNote
-    });
-  };
+  //     // watchNote: !this.state.watchNote
+  //   });
+  // };
 
   render() {
     // console.log("Notes State", this.state);
@@ -29,9 +29,11 @@ export default class Notes extends Component {
             <Note
               key={note.id}
               {...note}
-              renderClickedNote={this.renderClickedNote}
-              clickedNote={this.state.clickedNote}
+              renderClickedNote={this.props.renderClickedNote}
               removeNoteFromNotes={this.props.removeNoteFromNotes}
+              handleNoteFetch={this.props.handleNoteFetch}
+              displayNoteUpdate={this.props.displayNoteUpdate}
+              clickedNote={this.props.clickedNote}
             />
           );
         })}

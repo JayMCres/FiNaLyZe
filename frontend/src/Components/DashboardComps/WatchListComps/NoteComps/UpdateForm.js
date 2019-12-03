@@ -26,18 +26,20 @@ class UpdateForm extends Component {
         Accept: "application/json"
       },
       body: JSON.stringify({
-        // favId: this.props.clickedFavorite.id,
-        // favTicker: this.props.clickedFavorite.ticker,
-        // favName: this.props.clickedFavorite.name,
         updateTitle: this.state.updateTitle,
         updateBody: this.state.updateBody
-        // userId: this.props.user.id
       })
     }).then(response => {
-      // console.log("response", response);
-      response.json();
+      console.log("response", response);
+      if (response) {
+        return this.handleUpdateSubmission();
+      }
     });
-    this.props.displayNoteUpdate();
+  };
+
+  handleUpdateSubmission = async () => {
+    await this.props.handleNoteFetch();
+    await this.props.displayNoteUpdate();
   };
 
   handleInputChange = event => {
@@ -48,15 +50,10 @@ class UpdateForm extends Component {
     this.setState({ [name]: value });
   };
   render() {
-    console.log("update Note Form", this.state);
+    // console.log("update Note Form", this.state);
     return (
       <div>
         <Form onSubmit={this.editNote}>
-          {/* <input
-            name="favId"
-            value={this.props.clickedFavorite.id}
-            ref="favId"
-          /> */}
           <Form.Field>
             <label style={{ color: "blue" }}>Title</label>
             <input
@@ -78,7 +75,6 @@ class UpdateForm extends Component {
             />
           </Form.Field>
           <Button type="submit">Update</Button>
-          {/* <input type="submit" value="Submit" /> */}
         </Form>
       </div>
     );
