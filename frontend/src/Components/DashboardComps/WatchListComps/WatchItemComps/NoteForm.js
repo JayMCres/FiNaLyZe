@@ -67,7 +67,12 @@ class NoteForm extends Component {
           body: ""
         })
       );
+    // this.refreshNotePage();
   };
+
+  // refreshNotePage = () => {
+  //   window.location.reload(false);
+  // };
 
   handleInputChange = event => {
     const target = event.target;

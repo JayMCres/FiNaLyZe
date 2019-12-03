@@ -3,7 +3,7 @@ import { Segment, Grid, Divider, Header, Icon, Label } from "semantic-ui-react";
 import Companies from "./TickerListComps/Companies";
 import SideCardContainer from "./WatchListComps/SideCardComps/SideCardContainer";
 import WatchListContainer from "./WatchListComps/WatchList";
-import NotePopUp from "./WatchListComps/NoteComps/NotePopUp";
+import NotePopUp from "./WatchListComps/WatchItemComps/NotePopUp";
 
 import DetailsContainer from "../CompanyComponents/DetailsContainer";
 
