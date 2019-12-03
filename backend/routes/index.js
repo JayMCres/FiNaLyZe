@@ -41,6 +41,7 @@ routes.get("/api/user_favorite/:id", favoriteController.getFavorite);
 routes.get("/api/notes/:id", noteController.getNote);
 routes.get("/api/notes", noteController.listNotes);
 routes.post("/api/user_note", noteController.addNote);
+routes.patch("/api/edit_note/:id", noteController.editNote);
 routes.delete("/api/delete_note/:id", noteController.deleteNote);
 
 routes.use("/api/annualbs", annualBSController.getAnnualBalanceSheet);

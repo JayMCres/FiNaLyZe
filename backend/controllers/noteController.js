@@ -45,6 +45,29 @@ exports.addNote = (req, res) => {
   });
 };
 
+exports.editNote = (req, res) => {
+  // console.log("Note Edit Body", );
+  const title = req.body.updateTitle;
+  console.log("title", title);
+  const content = req.body.updateBody;
+  Note.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(updatedNote => {
+      // console.log("FoundNote", updatedNote);
+      updatedNote.update({
+        title: title,
+        content: content
+      });
+    })
+    .then(newNote => {
+      console.log(newNote);
+      res.json(newNote);
+    });
+};
+
 exports.getNote = (req, res) => {
   Note.findOne({
     where: {
