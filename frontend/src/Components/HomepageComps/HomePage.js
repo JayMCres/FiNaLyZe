@@ -5,7 +5,7 @@ import MarketAnalysisContainer from "./MarketComps/MarketAnalysisContainer";
 import NewsContainer from "./NewsComponents/NewsContainer";
 import CompaniesContainer from "./CompanyListComp/CompaniesContainer";
 import RealTimeTickerContainer from "./PriceScrollBar/RealTimeTickerContainer";
-
+import HomePageMenu from "./HomePageMenu";
 class HomePage extends Component {
   state = {
     companies: [],
@@ -82,7 +82,7 @@ class HomePage extends Component {
 
   removeFromWatchList = favId => {
     const deleteFavorite = this.state.watchList.find(item => item.id === favId);
-    console.log("delete Favorite", deleteFavorite);
+    // console.log("delete Favorite", deleteFavorite);
     const updateWatchList = this.state.watchList.filter(item => {
       return item.id !== favId;
     });
@@ -130,8 +130,9 @@ class HomePage extends Component {
         <Segment inverted>
           <MarketAnalysisContainer />
         </Segment>
+        <HomePageMenu toggleMainMenu={this.toggleMainMenu} />
 
-        <Menu>
+        {/* <Menu>
           <Menu.Item
             style={{ color: "blue" }}
             name="ticker"
@@ -153,7 +154,7 @@ class HomePage extends Component {
           >
             <strong> News Feed </strong>
           </Menu.Item>
-        </Menu>
+        </Menu> */}
 
         <Segment inverted>
           <Grid columns={2} divided>
