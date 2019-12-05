@@ -24,6 +24,7 @@ export default class WatchItem extends Component {
             onClick={() => this.props.removeFromWatchList(this.props.id)}
           />
         </Label>
+
         <Message color="blue" attached="top">
           <Header as="h4">
             <Icon
@@ -31,10 +32,12 @@ export default class WatchItem extends Component {
               size="mini"
               onClick={() => this.props.togglePopup(this.props.id)}
             />
+
             {this.props.name}
             {/* <Button floated="right" icon="sticky note" /> */}
           </Header>
         </Message>
+
         {/* <Segment */}
         {foundNotes.length === 0 ? (
           <Message> No Notes </Message>

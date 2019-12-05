@@ -16,7 +16,7 @@ class ModelContainer extends Component {
       "Operating Cashflow",
       "Cash Conversion Ratio",
       "Free Cashflow",
-      "Capex % OCF"
+      "Capex % Rev"
     ];
 
     return (
