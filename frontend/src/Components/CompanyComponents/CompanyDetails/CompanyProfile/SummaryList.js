@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Segment } from "semantic-ui-react";
+import { Segment, Table, Message } from "semantic-ui-react";
+// import FinancialSummary from "./FinancialSummary";
+// import SummaryItem from "./SummaryItem";
 import FinancialSummary from "./FinancialSummary";
 
 class SummaryList extends Component {
@@ -9,15 +11,6 @@ class SummaryList extends Component {
     return (
       <Segment inverted>
         <FinancialSummary fins={this.props.summaryFinancials} />
-        {/* {this.props.summaryFinancials.map((item, index) => {
-          return (
-            <FinancialSummary
-              key={index}
-              {...item}
-              fins={this.props.summaryFinancials}
-            />
-          );
-        })} */}
       </Segment>
     );
   }

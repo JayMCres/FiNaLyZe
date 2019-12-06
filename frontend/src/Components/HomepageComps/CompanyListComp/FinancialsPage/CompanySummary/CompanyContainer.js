@@ -16,7 +16,7 @@ export default class CompanyContainer extends Component {
   };
 
   render() {
-    console.log("Company Conatiner Props", this.props);
+    // console.log("Company Conatiner Props", this.props);
     const companySummaryData = this.props.clickedCompanyData[0];
     const companyProfileArray = [companySummaryData.profile];
     const companyRevenueArray = companySummaryData.revenue;

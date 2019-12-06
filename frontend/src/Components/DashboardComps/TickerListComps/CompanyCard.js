@@ -13,17 +13,17 @@ export default class CompanyCard extends Component {
   render() {
     // console.log("Company Card Props", this.props);
     return (
-      <Card inverted>
-        <Card.Content>
+      <Card style={{ "background-color": "E6E6FA" }}>
+        <Card.Content style={{ "background-color": "E6E6FA" }}>
           {/* <Image
             floated="right"
             size="mini"
             src="/images/avatar/large/steve.jpg"
           /> */}
-          <Card.Header>
+          <Card.Header style={{ "background-color": "E6E6FA" }}>
             <h4>{this.props.name}</h4>
           </Card.Header>
-          <Card.Meta>
+          <Card.Meta style={{ "background-color": "E6E6FA" }}>
             <strong>{this.props.ticker}</strong>
           </Card.Meta>
           {/* <Card.Description>

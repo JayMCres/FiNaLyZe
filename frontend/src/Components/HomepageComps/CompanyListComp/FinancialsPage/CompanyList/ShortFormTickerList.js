@@ -7,7 +7,7 @@ export default class ShortFormTickerList extends Component {
   render() {
     // console.log("ShortFormTickerList", this.props);
     return (
-      <Table striped inverted>
+      <Table striped>
         {/* <TickerListHeader /> */}
         <Table.Body>
           {this.props.companies.map((company, index) => {

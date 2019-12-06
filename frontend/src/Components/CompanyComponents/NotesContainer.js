@@ -4,7 +4,7 @@ import NotesList from "./NotesList";
 
 export default class NotesContainer extends Component {
   render() {
-    console.log("Notes container State", this.props);
+    // console.log("Notes container State", this.props);
     return (
       <Segment inverted>
         {this.props.notes.length === 0 ? (

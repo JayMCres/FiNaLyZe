@@ -132,30 +132,6 @@ class HomePage extends Component {
         </Segment>
         <HomePageMenu toggleMainMenu={this.toggleMainMenu} />
 
-        {/* <Menu>
-          <Menu.Item
-            style={{ color: "blue" }}
-            name="ticker"
-            onClick={() => this.toggleMainMenu()}
-          >
-            <strong> Dashboard </strong>
-          </Menu.Item>
-          <Menu.Item
-            style={{ color: "blue" }}
-            name="company"
-            onClick={() => this.toggleMainMenu("company")}
-          >
-            <strong> Company Analysis </strong>
-          </Menu.Item>
-          <Menu.Item
-            style={{ color: "blue" }}
-            name="news"
-            onClick={() => this.toggleMainMenu("news")}
-          >
-            <strong> News Feed </strong>
-          </Menu.Item>
-        </Menu> */}
-
         <Segment inverted>
           <Grid columns={2} divided>
             <Grid.Column width={14}>

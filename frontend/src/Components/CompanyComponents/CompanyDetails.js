@@ -115,7 +115,7 @@ export default class CompanyDetails extends Component {
   };
 
   render() {
-    // console.log("Company Details State", this.state);
+    // console.log("Company Details State", this.props);
     return (
       <Segment inverted>
         <DetailsProfile

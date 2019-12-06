@@ -26,7 +26,7 @@ export default class SideCardContainer extends Component {
       return (
         <div>
           {this.props.companyProfile.length === 0 ? (
-            <Segment attached="top">
+            <Segment attached="top" style={{ "background-color": "#3333cc" }}>
               <Message>{this.props.clickedTicker.name}</Message>
               <SideCardButton
                 displayCompanyDetailPage={this.props.displayCompanyDetailPage}
@@ -34,7 +34,7 @@ export default class SideCardContainer extends Component {
             </Segment>
           ) : (
             <div>
-              <Segment attached="top">
+              <Segment attached="top" style={{ "background-color": "#6666ff" }}>
                 {[this.props.companyProfile].map(item => {
                   return <SideCardHeader {...item} />;
                 })}
@@ -46,7 +46,10 @@ export default class SideCardContainer extends Component {
                       return <SideCardValues {...item} />;
                     })}
                   </Segment>
-                  <Segment attached="bottom">
+                  <Segment
+                    attached="bottom"
+                    style={{ "background-color": "#6666ff" }}
+                  >
                     <SideCardButton
                       displayCompanyDetailPage={
                         this.props.displayCompanyDetailPage
