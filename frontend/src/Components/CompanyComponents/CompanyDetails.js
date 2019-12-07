@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Segment, Image } from "semantic-ui-react";
-import DetailsMenu from "./DetailsMenu";
+import DetailsPage from "./DetailsPage";
 import DetailsProfile from "./CompanyDetails/CompanyProfile/DetailsProfile";
 
 export default class CompanyDetails extends Component {
@@ -100,7 +100,7 @@ export default class CompanyDetails extends Component {
       );
     } else {
       return (
-        <DetailsMenu
+        <DetailsPage
           summaryFinancials={this.props.summaryFinancials}
           annualISData={this.props.annualISData}
           annualBSData={this.props.annualBSData}
