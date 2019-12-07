@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import PropTypes from "prop-types";
 import { Menu, Segment, Message, Grid } from "semantic-ui-react";
 import DashboardContainer from "../DashboardComps/DashboardContainer";
 import MarketAnalysisContainer from "./MarketComps/MarketAnalysisContainer";
@@ -122,6 +123,19 @@ class HomePage extends Component {
 
   render() {
     // console.log("Homepage State", this.state);
+
+    // const { newsFeed, CompanyList, dashBoard } = this.state;
+
+    // const HOMEPAGE_STATES = {
+    //   dashBoard: <DashboardContainer />,
+    //   CompanyList: <CompaniesContainer />,
+    //   newsFeed: <NewsContainer />
+    // };
+
+    // function Notification({ state }) {
+    //   return <div>{HOMEPAGE_STATES[state]}</div>;
+    // }
+
     return (
       <Segment inverted>
         {/* <Segment inverted> */}
