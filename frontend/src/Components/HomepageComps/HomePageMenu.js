@@ -2,28 +2,31 @@ import React from "react";
 import { Menu } from "semantic-ui-react";
 
 const HomePageMenu = props => {
+  const { activeItem } = props;
   return (
     <Menu>
       <Menu.Item
-        style={{ color: "blue" }}
-        name="ticker"
-        onClick={() => props.toggleMainMenu()}
+        name="dashboard"
+        active={activeItem === "dashboard"}
+        onClick={props.handleMainMenuClick}
       >
-        <strong> Dashboard </strong>
+        <strong style={{ color: "blue" }}> Dashboard</strong>
       </Menu.Item>
+
       <Menu.Item
-        style={{ color: "blue" }}
         name="company"
-        onClick={() => props.toggleMainMenu("company")}
+        active={activeItem === "company"}
+        onClick={props.handleMainMenuClick}
       >
-        <strong> Company Analysis </strong>
+        <strong style={{ color: "blue" }}> Company Analysis</strong>
       </Menu.Item>
+
       <Menu.Item
-        style={{ color: "blue" }}
         name="news"
-        onClick={() => props.toggleMainMenu("news")}
+        active={activeItem === "news"}
+        onClick={props.handleMainMenuClick}
       >
-        <strong> News Feed </strong>
+        <strong style={{ color: "blue" }}> News Feed</strong>
       </Menu.Item>
     </Menu>
   );

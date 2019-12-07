@@ -125,32 +125,11 @@ class HomePage extends Component {
         <Segment inverted>
           <MarketAnalysisContainer />
         </Segment>
-        {/* <HomePageMenu toggleMainMenu={this.toggleMainMenu} /> */}
-        <Menu>
-          <Menu.Item
-            name="dashboard"
-            active={activeItem === "dashboard"}
-            onClick={this.handleMainMenuClick}
-          >
-            Dashboard
-          </Menu.Item>
+        <HomePageMenu
+          handleMainMenuClick={this.handleMainMenuClick}
+          activeItem={activeItem}
+        />
 
-          <Menu.Item
-            name="company"
-            active={activeItem === "company"}
-            onClick={this.handleMainMenuClick}
-          >
-            Company Analysis
-          </Menu.Item>
-
-          <Menu.Item
-            name="news"
-            active={activeItem === "news"}
-            onClick={this.handleMainMenuClick}
-          >
-            News Feed
-          </Menu.Item>
-        </Menu>
         <Segment inverted>
           <Grid columns={2} divided>
             <Grid.Column width={14}>{onMainMenuClick(activeItem)}</Grid.Column>
