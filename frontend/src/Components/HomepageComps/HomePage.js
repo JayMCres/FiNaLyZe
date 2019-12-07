@@ -10,14 +10,12 @@ import HomePageMenu from "./HomePageMenu";
 class HomePage extends Component {
   state = {
     companies: [],
-    newsFeed: false,
-    dashBoard: true,
-    CompanyList: false,
     clickedTicker: null,
     response: "",
     post: "",
     watchList: [],
-    favorites: []
+    favorites: [],
+    activeItem: "dashboard"
   };
 
   componentDidMount() {
@@ -53,11 +51,7 @@ class HomePage extends Component {
     const preventDoubles = this.state.watchList.find(
       item => item.companyId === itemId
     );
-    // if (!preventDoubles) {
-    //   this.setState({
-    //     watchlist: [...this.state.watchList, foundTicker]
-    //   });
-    // }
+
     if (!preventDoubles) {
       fetch("http://localhost:5000/api/user_favorite/", {
         method: "POST",
@@ -98,43 +92,30 @@ class HomePage extends Component {
     });
   };
 
-  toggleMainMenu = word => {
-    if (word === "news") {
-      return this.setState({
-        newsFeed: true,
-        dashBoard: false,
-        CompanyList: false
-      });
-    }
-    if (word === "company") {
-      return this.setState({
-        newsFeed: false,
-        CompanyList: true,
-        dashBoard: false
-      });
-    } else {
-      return this.setState({
-        newsFeed: false,
-        CompanyList: false,
-        dashBoard: true
-      });
-    }
-  };
+  handleMainMenuClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
     // console.log("Homepage State", this.state);
+    const { activeItem } = this.state;
 
-    // const { newsFeed, CompanyList, dashBoard } = this.state;
-
-    // const HOMEPAGE_STATES = {
-    //   dashBoard: <DashboardContainer />,
-    //   CompanyList: <CompaniesContainer />,
-    //   newsFeed: <NewsContainer />
-    // };
-
-    // function Notification({ state }) {
-    //   return <div>{HOMEPAGE_STATES[state]}</div>;
-    // }
+    const onMainMenuClick = link => {
+      const HOME_PAGES = {
+        dashboard: (
+          <DashboardContainer
+            currentUser={this.props.currentUser}
+            clickedTicker={this.state.clickedTicker}
+            handleClickedTicker={this.handleClickedTicker}
+            companies={this.state.companies}
+            addToWatchList={this.addToWatchList}
+            watchlist={this.state.watchList}
+            removeFromWatchList={this.removeFromWatchList}
+          />
+        ),
+        company: <CompaniesContainer companies={this.state.companies} />,
+        news: <NewsContainer />
+      };
+      return <div>{HOME_PAGES[link]}</div>;
+    };
 
     return (
       <Segment inverted>
@@ -144,27 +125,35 @@ class HomePage extends Component {
         <Segment inverted>
           <MarketAnalysisContainer />
         </Segment>
-        <HomePageMenu toggleMainMenu={this.toggleMainMenu} />
+        {/* <HomePageMenu toggleMainMenu={this.toggleMainMenu} /> */}
+        <Menu>
+          <Menu.Item
+            name="dashboard"
+            active={activeItem === "dashboard"}
+            onClick={this.handleMainMenuClick}
+          >
+            Dashboard
+          </Menu.Item>
 
+          <Menu.Item
+            name="company"
+            active={activeItem === "company"}
+            onClick={this.handleMainMenuClick}
+          >
+            Company Analysis
+          </Menu.Item>
+
+          <Menu.Item
+            name="news"
+            active={activeItem === "news"}
+            onClick={this.handleMainMenuClick}
+          >
+            News Feed
+          </Menu.Item>
+        </Menu>
         <Segment inverted>
           <Grid columns={2} divided>
-            <Grid.Column width={14}>
-              {this.state.dashBoard ? (
-                <DashboardContainer
-                  currentUser={this.props.currentUser}
-                  clickedTicker={this.state.clickedTicker}
-                  handleClickedTicker={this.handleClickedTicker}
-                  companies={this.state.companies}
-                  addToWatchList={this.addToWatchList}
-                  watchlist={this.state.watchList}
-                  removeFromWatchList={this.removeFromWatchList}
-                />
-              ) : null}
-              {this.state.CompanyList ? (
-                <CompaniesContainer companies={this.state.companies} />
-              ) : null}
-              {this.state.newsFeed ? <NewsContainer /> : null}
-            </Grid.Column>
+            <Grid.Column width={14}>{onMainMenuClick(activeItem)}</Grid.Column>
             <Grid.Column width={2}>
               <Message attached="top" color="violet">
                 <h3>Stocks</h3>
