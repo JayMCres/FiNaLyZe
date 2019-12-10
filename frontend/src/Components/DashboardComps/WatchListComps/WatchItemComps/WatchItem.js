@@ -9,19 +9,24 @@ export default class WatchItem extends Component {
     WatchListNote: null
   };
 
+  handleWatchListDelete = async () => {
+    await this.props.removeNoteFromNotes(this.props.id);
+    await this.props.removeFromWatchList(this.props.id);
+  };
+
   render() {
     // console.log("watch item Container State", this.props);
     const foundNotes = this.props.notes.filter(note => {
       return note.favTicker === this.props.ticker;
     });
     // console.log("found notes", foundNotes);
-
+    console.log("Watch Item Props", this.props);
     return (
       <Segment inverted>
         <Label as="a" corner="right" color="red">
           <Icon
             name="remove"
-            onClick={() => this.props.removeFromWatchList(this.props.id)}
+            onClick={() => this.handleWatchListDelete(this.props.id)}
           />
         </Label>
 
