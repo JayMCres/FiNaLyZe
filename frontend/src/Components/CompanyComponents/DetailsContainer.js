@@ -26,7 +26,7 @@ export default class DetailsContainer extends Component {
       body: JSON.stringify({ post: this.props.clickedTicker.ticker })
     });
     const body = await response.json();
-    console.log(body);
+    // console.log(body);
     this.setState({
       annualISData: body[0]
     });

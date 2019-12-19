@@ -20,7 +20,7 @@ exports.getClickedCompany = async (req, res) => {
 
   let originalISObj = await annualDataIS.map(item => {
     const values = Object.values(item);
-    console.log(values);
+    // console.log(values);
     const labels = Object.keys(item);
     return { label: labels, value: values };
   });

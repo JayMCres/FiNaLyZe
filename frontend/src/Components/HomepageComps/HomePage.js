@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import PropTypes from "prop-types";
-import { Menu, Segment, Message, Grid } from "semantic-ui-react";
+import { Segment, Message, Grid } from "semantic-ui-react";
 import DashboardContainer from "../DashboardComps/DashboardContainer";
 import MarketAnalysisContainer from "./MarketComps/MarketAnalysisContainer";
 import NewsContainer from "./NewsComponents/NewsContainer";
@@ -119,7 +119,6 @@ class HomePage extends Component {
 
     return (
       <Segment inverted>
-        {/* <Segment inverted> */}
         <Message info></Message>
 
         <Segment inverted>

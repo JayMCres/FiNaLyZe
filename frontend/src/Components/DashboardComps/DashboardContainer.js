@@ -22,16 +22,6 @@ export default class DashboardContainer extends Component {
   };
 
   componentDidMount() {
-    // fetch("http://localhost:5000/api/notes")
-    //   .then(response => {
-    //     return response.json();
-    //   })
-    //   .then(notes => {
-    //     const userNotes = notes.filter(note => {
-    //       return note.userId === this.props.currentUser.id;
-    //     });
-    //     return this.setState({ notes: userNotes });
-    //   });
     return this.handleNoteFetch();
   }
 
@@ -52,11 +42,9 @@ export default class DashboardContainer extends Component {
     const clickedNote = this.state.notes.find(note => {
       return note.id === noteId;
     });
-    console.log("showing", clickedNote);
+    // console.log("showing", clickedNote);
     return this.setState({
       clickedNote: clickedNote
-
-      // watchNote: !this.state.watchNote
     });
   };
 
@@ -118,7 +106,7 @@ export default class DashboardContainer extends Component {
 
   removeNoteFromNotes = noteId => {
     const deleteNote = this.state.notes.find(item => item.id === noteId);
-    console.log("delete Note", deleteNote, noteId);
+    // console.log("delete Note", deleteNote, noteId);
     const updateNote = this.state.notes.filter(item => {
       return item.id !== noteId;
     });

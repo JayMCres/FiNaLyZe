@@ -25,15 +25,6 @@ class NotePopUp extends Component {
                   addNewNoteToNotes={this.props.addNewNoteToNotes}
                   clickedFavorite={this.props.clickedFavorite}
                 />
-                {/* {this.props.showUpdatePopup === true ? (
-                  <UpdateForm
-                    user={this.props.user}
-                    clickedFavorite={this.props.clickedFavorite}
-                    clickedNote={this.props.clickedNote}
-                    displayNoteUpdate={this.props.displayNoteUpdate}
-                  />
-                ) : null} */}
-                {/* )} */}
               </Segment>
             </div>
           </div>

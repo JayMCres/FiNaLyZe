@@ -5,7 +5,7 @@ import AnnualISItem from "./AnnualISItem";
 
 export default class AnnualISList extends Component {
   render() {
-    console.log("AnnualISList Props", this.props);
+    // console.log("AnnualISList Props", this.props);
     return (
       <Segment inverted>
         <Table striped>

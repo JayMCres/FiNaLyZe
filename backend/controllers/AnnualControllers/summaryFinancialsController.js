@@ -40,37 +40,11 @@ exports.getSummaryFinancials = async (req, res) => {
         ni: ni,
         eps: item[4]
       };
-      // item[0],
-      // revenue,
-      // ebitda,
-      // ebitdamargin.toString().slice(0, 4),
-      // ebit,
-      // ebitmargin.toString().slice(0, 4),
-      // ni,
-      // item[4]
     }
   );
   //
   let restatedFinancials = await restatedFinancialsData;
-  // // .map(finItem => {
-  // //   console.log(finitem);
-  //   // const finItem = Object.values(item);
-  //   return {
-  //     // label: labels[index],
-  //     // YrOne: Object.values(finItem[0]),
-  //     // YrTwo: Object.values(finItem[1]),
-  //     // YrThree: Object.values(finItem[2]),
-  //     // YrFour: Object.values(finItem[3]),
-  //     // YrFive: Object.values(finItem[4])
-  //     // YrOne: finItem[0],
-  //     // YrTwo: finItem[1],
-  //     // YrThree: finItem[2],
-  //     // YrFour: finItem[3],
-  //     // YrFive: finItem[4]
-  //   };
 
-  // console.log(objectValues);
-
-  console.log("restatedFinancials", restatedFinancials);
+  // console.log("restatedFinancials", newFin);
   res.send(restatedFinancials);
 };

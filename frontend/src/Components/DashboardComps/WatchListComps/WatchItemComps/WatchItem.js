@@ -15,12 +15,11 @@ export default class WatchItem extends Component {
   };
 
   render() {
-    // console.log("watch item Container State", this.props);
+    // console.log("watch item Container Props", this.props);
     const foundNotes = this.props.notes.filter(note => {
       return note.favTicker === this.props.ticker;
     });
-    // console.log("found notes", foundNotes);
-    console.log("Watch Item Props", this.props);
+
     return (
       <Segment inverted>
         <Label as="a" corner="right" color="red">
@@ -37,13 +36,10 @@ export default class WatchItem extends Component {
               size="mini"
               onClick={() => this.props.togglePopup(this.props.id)}
             />
-
             {this.props.name}
-            {/* <Button floated="right" icon="sticky note" /> */}
           </Header>
         </Message>
 
-        {/* <Segment */}
         {foundNotes.length === 0 ? (
           <Message> No Notes </Message>
         ) : (

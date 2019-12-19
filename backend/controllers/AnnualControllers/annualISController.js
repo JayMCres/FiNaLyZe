@@ -42,6 +42,6 @@ exports.getAnnualIncome = async (req, res) => {
     return isItems;
   });
 
-  console.log("restatedISObj", restatedISObj);
+  // console.log("restatedISObj", restatedISObj);
   res.send(restatedISObj);
 };

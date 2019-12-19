@@ -51,16 +51,10 @@ class NoteForm extends Component {
     this.setState({ [name]: value });
   };
   render() {
-    console.log("Note Form", this.props);
+    // console.log("Note Form", this.props);
     return (
       <div>
-        {/* <form onSubmit={this.addNote}> */}
         <Form onSubmit={this.addNote}>
-          {/* <input
-            name="favId"
-            value={this.props.clickedFavorite.id}
-            ref="favId"
-          /> */}
           <Form.Field>
             <label style={{ color: "blue" }}>Title</label>
             <input
@@ -82,7 +76,6 @@ class NoteForm extends Component {
             />
           </Form.Field>
           <Button type="submit">Submit</Button>
-          {/* <input type="submit" value="Submit" /> */}
         </Form>
       </div>
     );

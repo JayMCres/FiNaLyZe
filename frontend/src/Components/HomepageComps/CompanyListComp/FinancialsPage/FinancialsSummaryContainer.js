@@ -14,7 +14,7 @@ export default class FinancialSummaryContainer extends Component {
           <CompanyContainer
             clickedCompanyRatios={this.props.clickedCompanyRatios}
             clickedCompanyData={[this.props.clickedCompanyData].map(obj => {
-              console.log("clicked Object", obj);
+              // console.log("clicked Object", obj);
               return {
                 profile: obj[0],
                 revenue: obj[1].filter(item => {
@@ -46,7 +46,7 @@ export default class FinancialSummaryContainer extends Component {
     }
   };
   render() {
-    console.log("Financial Summary Props", this.props);
+    // console.log("Financial Summary Props", this.props);
     return (
       <Grid columns={2} textAlign="center">
         {/* <Divider vertical>Or</Divider> */}

@@ -26,13 +26,11 @@ export default class WatchList extends Component {
           })}
         </div>
       );
-      // this.props.handleNoteFetch();
     }
   };
 
   render() {
     // console.log("WATCH", this.props.watchlist.length);
     return <div>{this.renderWatchList()}</div>;
-    // return <WatchList />;
   }
 }

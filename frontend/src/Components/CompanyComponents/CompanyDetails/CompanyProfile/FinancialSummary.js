@@ -3,7 +3,7 @@ import React from "react";
 import { Table } from "semantic-ui-react";
 
 const FinancialSummary = props => {
-  console.log("summary props", props);
+  // console.log("summary props", props);
   return (
     <Table definition>
       <Table.Header>

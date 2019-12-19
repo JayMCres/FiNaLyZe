@@ -5,9 +5,7 @@ const CompanyOverview = props => {
   return (
     <div>
       <Segment inverted attached="top">
-        <Header as="h4" inverted color="blue">
-          <h1 />
-        </Header>
+        <Header as="h4" inverted color="blue"></Header>
       </Segment>
       <Message color="blue" attached content="Message" icon="help circle" info>
         {props.description}
