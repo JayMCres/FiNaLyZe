@@ -1,7 +1,9 @@
 const fetch = require("node-fetch");
 
+const majorIndexes = process.env.FMP_INDEXES;
+
 exports.getMarketIndexes = async (req, res) => {
-  const url = `https://financialmodelingprep.com//api/v3/majors-indexes`;
+  const url = `${majorIndexes}`;
 
   let response = await fetch(url);
   // console.log("response", response);
