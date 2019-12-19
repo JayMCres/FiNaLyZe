@@ -1,7 +1,8 @@
 const fetch = require("node-fetch");
+const quaterlyCF = process.env.FMP_QUATERLY_CF;
 
 exports.getQuaterlyCFData = async (req, res) => {
-  const url = `https://financialmodelingprep.com/api/financials/cash-flow-statement/${req.body.post}?period=quarter&datatype=json`;
+  const url = `${quaterlyCF}/${req.body.post}?period=quarter&datatype=json`;
 
   let response = await fetch(url);
   // console.log("response", response);

@@ -1,7 +1,8 @@
 const fetch = require("node-fetch");
+const annualBS = process.env.FMP_ANNUAL_BS;
 
 exports.getAnnualBalanceSheet = async (req, res) => {
-  const url = `https://financialmodelingprep.com/api/financials/balance-sheet-statement/${req.body.post}?datatype=json`;
+  const url = `${annualBS}/${req.body.post}?datatype=json`;
 
   let response = await fetch(url);
   // console.log("response", response);

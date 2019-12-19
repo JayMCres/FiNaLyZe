@@ -1,3 +1,7 @@
+require("dotenv").config();
+
+// console.log(process.env);
+
 const express = require("express");
 
 const logger = require("morgan");
@@ -22,6 +26,8 @@ app.use("/", routes);
 
 const port = process.env.PORT || 5000;
 const server = app.listen(port, () => console.log(`Listening on port ${port}`));
+const apiBaseUrl = process.env.FMP_BASE_URL;
+const realTimePrices = process.env.FMP_REALTIME_PRICES;
 
 const io = require("socket.io").listen(server);
 const connections = [];
@@ -42,7 +48,7 @@ io.sockets.on("connection", socket => {
 });
 
 const getApiAndEmit = async socket => {
-  const url = `https://financialmodelingprep.com/api/company/real-time-price/MSFT,AAPL,AMZN,GOOG,FB,JPM,JNJ,V,XOM,BAC,WMT,PG,MA,DIS,CSCO,VZ,INTC,UNH,T,CVX,HD,PFE,WFC,BA,KO,MRK,CMCSA,ORCL,PEP,C,NFLX,MCD,ADBE,NKE,ABT,PYPL,PM,CRM,HON,UNP,LLY,AVGO,IBM,ACN,ABBV,MDT,AMGN,MMM,TXN?datatype=json`;
+  const url = realTimePrices;
   let response = await fetch(url);
   // console.log("response", response);
 

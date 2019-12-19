@@ -1,7 +1,9 @@
 const fetch = require("node-fetch");
 
+const companyRatios = process.env.FMP_RATIOS;
+
 exports.getFinancialRatios = async (req, res) => {
-  const url = `https://financialmodelingprep.com/api/financial-ratios/${req.body.post}?&datatype=json`;
+  const url = `${companyRatios}/${req.body.post}?&datatype=json`;
 
   let response = await fetch(url);
 

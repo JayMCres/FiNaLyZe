@@ -1,7 +1,10 @@
 const fetch = require("node-fetch");
+const valuationMetrics = process.env.QUANDL_METRICS;
+const baseUrl = process.env.QUANDL_BASE_URL;
+const apiKey = process.env.QUANDL_API_KEY;
 
 exports.getValueMetrics = async (req, res) => {
-  const url = `https://www.quandl.com/api/v3/datatables/SHARADAR/DAILY.json?ticker=${req.body.post}&api_key=YvjxT6NSByrGzvHcVJyS`;
+  const url = `${baseUrl}/${valuationMetrics}?ticker=${req.body.post}&api_key=${apiKey}`;
 
   let response = await fetch(url);
 

@@ -1,16 +1,20 @@
 const fetch = require("node-fetch");
 
+const compProfile = process.env.FMP_PROFILE;
+const annualIS = process.env.FMP_ANNUAL_IS;
+const annualCF = process.env.FMP_ANNUAL_CF;
+
 exports.getClickedCompany = async (req, res) => {
   const data = await Promise.all([
-    fetch(
-      `https://financialmodelingprep.com/api/company/profile/${req.body.post}?datatype=json`
-    ).then(response => response.json()), // parse each response as json
-    fetch(
-      `https://financialmodelingprep.com/api/financials/income-statement/${req.body.post}?datatype=json`
-    ).then(response => response.json()),
-    fetch(
-      `https://financialmodelingprep.com/api/financials/cash-flow-statement/${req.body.post}?datatype=json`
-    ).then(response => response.json())
+    fetch(`${compProfile}/${req.body.post}?datatype=json`).then(response =>
+      response.json()
+    ), // parse each response as json
+    fetch(`${annualIS}/${req.body.post}?datatype=json`).then(response =>
+      response.json()
+    ),
+    fetch(`${annualCF}/${req.body.post}?datatype=json`).then(response =>
+      response.json()
+    )
   ]);
   // console.log("data", data);
 
@@ -49,7 +53,6 @@ exports.getClickedCompany = async (req, res) => {
   let originalCFObj = await annualDataCF.map(item => {
     const values = Object.values(item);
     const labels = Object.keys(item);
-
     return { label: labels, value: values };
   });
 

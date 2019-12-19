@@ -1,7 +1,8 @@
 const fetch = require("node-fetch");
+const annualIS = process.env.FMP_ANNUAL_IS;
 
 exports.getAnnualIncome = async (req, res) => {
-  const url = `https://financialmodelingprep.com/api/financials/income-statement/${req.body.post}?datatype=json`;
+  const url = `${annualIS}/${req.body.post}?datatype=json`;
 
   let response = await fetch(url);
   // console.log("response", response);

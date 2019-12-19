@@ -1,15 +1,17 @@
 const fetch = require("node-fetch");
 
-exports.getStockTickers = async (req, res) => {
-  const col =
-    "ticker,name,exchange,famaindustry,sector,industry,scalemarketcap,scalerevenue,location,secfilings,companysite,permaticker";
+const baseUrl = process.env.QUANDL_BASE_URL;
+const stockTickers = process.env.QUANDL_TICKERS_URL;
+const col = process.env.QUANDL_COLUMNS;
+const apiKey = process.env.QUANDL_API_KEY;
 
-  const url = `https://www.quandl.com/api/v3/datatables/SHARADAR/TICKERS.json?table=SF1&qopts.columns=${col}&api_key=YvjxT6NSByrGzvHcVJyS`;
+exports.getStockTickers = async (req, res) => {
+  const url = `${baseUrl}/${stockTickers}&qopts.columns=${col}&api_key=${apiKey}`;
 
   const tickerResponse = await fetch(url);
 
   const tickerJson = await tickerResponse.json();
-  // console.log("JSON", tickerJson);
+  console.log("JSON", tickerJson);
 
   const tickerDataResponse = await tickerJson.datatable.data.map(
     (item, index) => {

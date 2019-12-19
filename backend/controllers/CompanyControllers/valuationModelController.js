@@ -1,7 +1,11 @@
 const fetch = require("node-fetch");
+const baseUrl = process.env.QUANDL_BASE_URL;
+
+const apiKey = process.env.QUANDL_API_KEY;
+const valuation = process.env.QUANDL_VALUATION;
 
 exports.getModelHistoricalData = async (req, res) => {
-  const url = `https://www.quandl.com/api/v3/datatables/SHARADAR/SF1.json?ticker=${req.body.post}&dimension=MRY&calendardate.gte=2013-12-31&qopts.columns=datekey,revenue,ebitda,ebitdamargin,ncfo,capex,fcf,netinc&api_key=YvjxT6NSByrGzvHcVJyS`;
+  const url = `${baseUrl}/SF1.json?ticker=${req.body.post}&dimension=${valuation}&api_key=${apiKey}`;
 
   let response = await fetch(url);
   // console.log("response", response);

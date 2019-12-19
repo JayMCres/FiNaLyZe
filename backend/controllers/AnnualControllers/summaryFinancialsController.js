@@ -1,8 +1,11 @@
 const fetch = require("node-fetch");
+const date = process.env.QUANDL_DATES;
+const quandlBaseUrl = process.env.QUANDL_BASE_URL;
+const summaryFinancials = process.env.QUANDL_HISTORICAL;
+const apiKey = process.env.QUANDL_API_KEY;
 
 exports.getSummaryFinancials = async (req, res) => {
-  const date = "2018-12-31,2017-12-31,2016-12-31,2015-12-31,2014-12-31";
-  const url = `https://www.quandl.com/api/v3/datatables/SHARADAR/SF1.json?dimension=MRY&qopts.columns=calendardate,revenue,ebitda,netinccmn,eps,ebit,ebitdamargin&ticker=${req.body.post}&calendardate=${date}&api_key=YvjxT6NSByrGzvHcVJyS`;
+  const url = `${quandlBaseUrl}/${summaryFinancials}&ticker=${req.body.post}&calendardate=${date}&api_key=${apiKey}`;
   const response = await fetch(url);
   const json = await response.json();
   // console.log("Json", json);

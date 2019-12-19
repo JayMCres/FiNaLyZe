@@ -1,7 +1,9 @@
 const fetch = require("node-fetch");
 
+const companyOverview = process.env.FMP_PROFILE;
+
 exports.getCompanyProfile = async (req, res) => {
-  const url = `https://financialmodelingprep.com/api/company/profile/${req.body.post}?datatype=json`;
+  const url = `${companyOverview}/${req.body.post}?datatype=json`;
 
   let responseProfile = await fetch(url);
 

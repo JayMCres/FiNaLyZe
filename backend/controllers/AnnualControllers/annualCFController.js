@@ -1,8 +1,8 @@
 const fetch = require("node-fetch");
+const annualCF = process.env.FMP_ANNUAL_CF;
 
 exports.getAnnualCashFlow = async (req, res) => {
-  const url = `https://financialmodelingprep.com/api/financials/cash-flow-statement/${req.body.post}?datatype=json`;
-
+  const url = `${annualCF}/${req.body.post}?datatype=json`;
   let response = await fetch(url);
   // console.log("response", response);
 
