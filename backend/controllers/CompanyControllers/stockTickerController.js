@@ -11,7 +11,7 @@ exports.getStockTickers = async (req, res) => {
   const tickerResponse = await fetch(url);
 
   const tickerJson = await tickerResponse.json();
-  console.log("JSON", tickerJson);
+  // console.log("JSON", tickerJson);
 
   const tickerDataResponse = await tickerJson.datatable.data.map(
     (item, index) => {

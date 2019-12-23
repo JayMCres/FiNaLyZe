@@ -11,9 +11,10 @@ exports.getSummaryFinancials = async (req, res) => {
   // console.log("Json", json);
   const restatedFinancialsData = await json.datatable.data.map(
     (item, index) => {
-      // console.log("item", item);
       // return item;
-      const date = item[0].slice(0, 4);
+
+      const date = item[0];
+
       const revenue = (item[1] / 1000000000).toLocaleString("us-EN", {
         style: "currency",
         currency: "USD"
@@ -32,9 +33,11 @@ exports.getSummaryFinancials = async (req, res) => {
       });
       const ebitdamargin = (item[2] / item[1]) * 100;
       const ebitmargin = (item[5] / item[1]) * 100;
-      return {
+
+      const newObject = {
         // ["year" + (index + 1)]:
-        date: item[0],
+
+        date: date,
         revenue: revenue,
         ebitda: ebitda,
         ebitdaMargin: ebitdamargin.toString().slice(0, 4),
@@ -43,11 +46,11 @@ exports.getSummaryFinancials = async (req, res) => {
         ni: ni,
         eps: item[4]
       };
+      // console.log(newObject);
+      return newObject;
     }
   );
-  //
-  let restatedFinancials = await restatedFinancialsData;
 
-  // console.log("restatedFinancials", newFin);
-  res.send(restatedFinancials);
+  let restatedFinancial = await restatedFinancialsData;
+  res.send(restatedFinancial);
 };
