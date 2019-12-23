@@ -122,7 +122,7 @@ export default class DashboardContainer extends Component {
   };
 
   render() {
-    console.log("dashboard State", this.state);
+    // console.log("dashboard State", this.state);
     return (
       <div>
         {!this.state.companyDetailsPage ? (

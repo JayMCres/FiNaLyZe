@@ -69,6 +69,7 @@ export default class DetailsMenu extends Component {
           >
             <strong> Cashflow Statement (QTR) </strong>
           </Menu.Item>
+
           <Menu.Item
             name="model"
             active={this.props.activeItem === "model"}
