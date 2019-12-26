@@ -5,10 +5,10 @@ import SummaryItem from "./SummaryItem";
 
 export default class SummaryList extends Component {
   render() {
-    console.log("Fin Summary List", this.props);
+    // console.log("Fin Summary List", this.props);
 
     return (
-      <Table striped>
+      <Table inverted striped>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell textAlign="center">
@@ -17,7 +17,7 @@ export default class SummaryList extends Component {
           </Table.Row>
         </Table.Header>
 
-        <Table.Body>
+        <Table.Body inverted>
           <Message>
             <Grid centered column={2}>
               <Table.Row>

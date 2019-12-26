@@ -149,7 +149,6 @@ export default class DetailsPage extends Component {
             handleItemClick={this.handleItemClick}
           />
         </Segment>
-
         <Segment inverted>{onMenuClick(this.state.activeItem)}</Segment>
       </Segment>
     );
